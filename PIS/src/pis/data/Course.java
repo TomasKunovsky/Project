@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 
@@ -26,6 +27,8 @@ public class Course {
 	private String name;
 	@OneToMany(mappedBy = "course", orphanRemoval = true, fetch = EAGER, cascade = ALL)
 	private Collection<OpenCourse> openCourses;
+	@ManyToOne(fetch = EAGER)
+	private Lector lector;
 	
 	public Course() {
 		openCourses = new Vector<OpenCourse>();
@@ -61,4 +64,14 @@ public class Course {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Lector getLector() {
+		return lector;
+	}
+
+	public void setLector(Lector lector) {
+		this.lector = lector;
+	}
+	
+	
 }

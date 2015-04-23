@@ -2,16 +2,25 @@ package pis.data;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.Vector;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import static javax.persistence.FetchType.EAGER;
+
 import javax.persistence.Temporal;
+
 import static javax.persistence.TemporalType.DATE;
+
+import javax.persistence.OneToMany;
+
+import static javax.persistence.CascadeType.ALL;
 
 @Entity
 @Table(name = "open_course")
@@ -25,8 +34,16 @@ public class OpenCourse {
 	private Date startDate;
 	@Temporal(DATE)
 	private Date endDate;
-	@ManyToOne(fetch = EAGER)
+	@ManyToOne(fetch = EAGER) 
 	private Course course;
+	@OneToMany(fetch = EAGER, cascade = ALL, mappedBy = "openCourse", orphanRemoval = true)
+	private Collection<Lesson> lessons;
+	@ManyToOne(fetch = EAGER)
+	private Lector lector;
+	
+	public OpenCourse() {
+		this.lessons = new Vector<Lesson>();
+	}
 	
 	public Course getCourse() {
 		return course;
@@ -64,4 +81,21 @@ public class OpenCourse {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+
+	public Collection<Lesson> getLessons() {
+		return lessons;
+	}
+
+	public void setLessons(Collection<Lesson> lessons) {
+		this.lessons = lessons;
+	}
+
+	public Lector getLector() {
+		return lector;
+	}
+
+	public void setLector(Lector lector) {
+		this.lector = lector;
+	}
+	
 }
