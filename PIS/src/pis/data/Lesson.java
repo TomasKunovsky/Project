@@ -2,16 +2,21 @@ package pis.data;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.Vector;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import static javax.persistence.TemporalType.DATE;
 import static javax.persistence.TemporalType.TIME;
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
+
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -32,6 +37,13 @@ public class Lesson {
 	private OpenCourse openCourse;
 	@ManyToOne(fetch = EAGER)
 	private Lector lector;
+	@ManyToMany(mappedBy="lessons", fetch = EAGER, cascade = ALL)
+	private Collection<Client> clients;
+	
+	public Lesson() {
+		this.clients = new Vector<Client>();
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -80,5 +92,12 @@ public class Lesson {
 	public void setLector(Lector lector) {
 		this.lector = lector;
 	}
+	public Collection<Client> getClients() {
+		return clients;
+	}
+	public void setClients(Collection<Client> clients) {
+		this.clients = clients;
+	}
+	
 	
 }

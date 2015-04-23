@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
@@ -29,9 +30,12 @@ public class Course {
 	private Collection<OpenCourse> openCourses;
 	@ManyToOne(fetch = EAGER)
 	private Lector lector;
+	@ManyToMany(mappedBy="courses", fetch = EAGER, cascade = ALL)
+	private Collection<Client> clients;
 	
 	public Course() {
 		openCourses = new Vector<OpenCourse>();
+		clients = new Vector<Client>(); 
 	}
 	
 	public Collection<OpenCourse> getOpenCourses() {
@@ -72,6 +76,15 @@ public class Course {
 	public void setLector(Lector lector) {
 		this.lector = lector;
 	}
+
+	public Collection<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(Collection<Client> clients) {
+		this.clients = clients;
+	}
+	
 	
 	
 }

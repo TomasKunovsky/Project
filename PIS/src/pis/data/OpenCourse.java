@@ -22,6 +22,8 @@ import javax.persistence.OneToMany;
 
 import static javax.persistence.CascadeType.ALL;
 
+import javax.persistence.ManyToMany;
+
 @Entity
 @Table(name = "open_course")
 public class OpenCourse {
@@ -40,9 +42,15 @@ public class OpenCourse {
 	private Collection<Lesson> lessons;
 	@ManyToOne(fetch = EAGER)
 	private Lector lector;
+	@ManyToMany(mappedBy="openCourses", fetch = EAGER, cascade = ALL)
+	private Collection<Client> clients;
+	@OneToMany(mappedBy = "openCourse", orphanRemoval = true, fetch = EAGER, cascade = ALL)
+	private Collection<Payment> payments;
 	
 	public OpenCourse() {
 		this.lessons = new Vector<Lesson>();
+		this.clients = new Vector<Client>();
+		this.payments = new Vector<Payment>();
 	}
 	
 	public Course getCourse() {
@@ -97,5 +105,23 @@ public class OpenCourse {
 	public void setLector(Lector lector) {
 		this.lector = lector;
 	}
+
+	public Collection<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(Collection<Client> clients) {
+		this.clients = clients;
+	}
+
+	public Collection<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setPayments(Collection<Payment> payments) {
+		this.payments = payments;
+	}
+	
+	
 	
 }
