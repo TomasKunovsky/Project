@@ -2,18 +2,32 @@
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+      
 <h:head>
   <title><ui:insert name="title">Sample Application</ui:insert></title>
   <h:outputStylesheet name="style/default.css" />
 </h:head>
 
 <h:body>
-
+		
 <div id="header">
     <ui:insert name="header">
     	<h1>Firma s kurzy</h1>
     </ui:insert>
+    <h:panelGroup  id="user_info" rendered="#{authenticationBean.authorized}">
+		<h:form>
+			<span><h:outputText value="#{authenticationBean.login}"/></span>
+		    <h:commandLink id="logout" action="#{authenticationBean.actionLogout}" value="logout"/>
+		</h:form>
+    </h:panelGroup >
+    <h:panelGroup  id="login" rendered="#{!authenticationBean.authorized}">
+		<h:form>
+		    <a href="login.xhtml">Login</a>
+		</h:form>
+    </h:panelGroup >
+    
 </div>
 
 

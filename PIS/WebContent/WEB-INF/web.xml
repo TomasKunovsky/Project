@@ -10,6 +10,7 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  <!-- tento filter umozni pristup lektorovi a adminovi -->
   <filter>
      <filter-name>LectorAdminAuthorizationFilter</filter-name>
      <filter-class>pis.back.AuthenticationFilter</filter-class>
@@ -19,6 +20,7 @@
     </init-param> 
   </filter>
   
+  <!-- tento umozi pristup iba adminovi -->
   <filter>
      <filter-name>AdminAuthorizationFilter</filter-name>
      <filter-class>pis.back.AuthenticationFilter</filter-class>
@@ -28,8 +30,18 @@
     </init-param> 
   </filter>
   
+  <filter>
+     <filter-name>LectorAuthorizationFilter</filter-name>
+     <filter-class>pis.back.AuthenticationFilter</filter-class>
+     <init-param>
+      <param-name>role</param-name>
+      <param-value>lector</param-value>
+    </init-param> 
+  </filter>
+  
+  <!-- zoznam stranok, kde ma pristup iba lektor -->
   <filter-mapping>
-     <filter-name>LectorAdminAuthorizationFilter</filter-name>
+     <filter-name>LectorAuthorizationFilter</filter-name>
      <url-pattern>/faces/lector_lections.xhtml</url-pattern>
      <url-pattern>/faces/lector_opened_courses.xhtml</url-pattern>
      <url-pattern>/faces/lector_screen.xhtml</url-pattern>
@@ -38,7 +50,7 @@
      <dispatcher>INCLUDE</dispatcher>
   </filter-mapping>
   
-  <!-- TODO zmaz -->
+  <!-- TODO zmaz - len na ukazku -->
   <filter-mapping>
      <filter-name>AdminAuthorizationFilter</filter-name>
      <url-pattern>/faces/lector_new.xhtml</url-pattern>
