@@ -10,11 +10,13 @@
 	<ui:define name="content">
 	<h1>Obrazovka lektora</h1>
 	
-	<ul>
-		<li><a href="lector_opened_courses.xhtml">Moje otvorené kurzy</a></li>
-		<li><a href="lector_lections.xhtml">Moje lekcie</a></li>
-		<li><a href="lector_edit.xhtml">Môj profil</a></li>
-	</ul>
+	<h:form>
+		<ul>
+			<li><h:commandLink value="Môj profil" action="#{lectorBean.actionEdit(authenticationBean.loggedLector)}"></h:commandLink></li>
+			<li><h:commandLink value="Moje otvorené kurzy" action="#{openCoursesLectorBean.actionOpenCourses(authenticationBean.loggedLector)}"></h:commandLink></li>
+			<li><a href="lector_lections.xhtml">Moje lekcie</a></li>
+		</ul>		
+	</h:form>
 	
 	</ui:define>
 </ui:composition>

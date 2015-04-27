@@ -50,11 +50,47 @@
 	</navigation-rule>
 	
 	<navigation-rule>
+		<display-name>lector_screen.xhtml</display-name>
+		<from-view-id>/lector_screen.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/lector_profile_edit.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_screen.xhtml</display-name>
+		<from-view-id>/lector_screen.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>courses_list</from-outcome>
+			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<display-name>lector_edit.xhtml</display-name>
 		<from-view-id>/lector_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
 			<to-view-id>/lector_list.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_profile_edit.xhtml</display-name>
+		<from-view-id>/lector_profile_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/lector_screen.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_profile_edit.xhtml</display-name>
+		<from-view-id>/lector_profile_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>update</from-outcome>
+			<to-view-id>/lector_screen.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	

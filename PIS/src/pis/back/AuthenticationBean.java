@@ -164,4 +164,8 @@ public class AuthenticationBean
 		
 		return ret;
 	}
+
+	public Lector getLoggedLector() {
+		return loggedLector;
+	}
 }

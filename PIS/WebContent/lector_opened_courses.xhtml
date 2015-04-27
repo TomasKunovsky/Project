@@ -9,6 +9,50 @@
 <ui:composition template="template.xhtml">
 	<ui:define name="content">
 	<h1>Moje otvorené kurzy</h1>
+		
+		<h:form>
+			<h:dataTable value="#{openCoursesLectorBean.openCourses}" var="course">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Nazov"/>
+	                </f:facet>
+					<h:outputText value="#{course.course.name}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Miesto"/>
+	                </f:facet>
+					<h:outputText value="#{course.place}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Začiatok"/>
+	                </f:facet>
+					<h:outputText value="#{course.startDate}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Koniec"/>
+	                </f:facet>
+					<h:outputText value="#{course.endDate}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Kapacita"/>
+	                </f:facet>
+					<h:outputText value="#{course.capacity}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandLink action="#{openCourseBean.addLection(course)}">
+						<h:outputText value="Nová lekcia"></h:outputText>
+					</h:commandLink>
+					&nbsp;
+					<h:commandLink action="#{openCourseBean.changeCapacity(course)}">
+						<h:outputText value="Zmena kapacity"></h:outputText>
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+		</h:form>
 	
 	</ui:define>
 </ui:composition>
