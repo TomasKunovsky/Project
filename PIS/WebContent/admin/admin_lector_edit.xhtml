@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+	
+		<h:form>
+			<h:messages layout="table"></h:messages>
+			<h:panelGrid columns="2">
+				<h:outputLabel rendered="true" value="Login"></h:outputLabel>
+				<h:inputText value="#{lectorBean.lector.login}" required="true"
+					requiredMessage="Není zadán login.">
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Telefon"></h:outputLabel>
+				<h:inputText value="#{lectorBean.lector.telephoneNumber}" required="true"
+					validatorMessage="Neplatný telefon." requiredMessage="Není zadán telefon.">
+					<f:validateLength minimum="9" maximum="13"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Křesní jméno"></h:outputLabel>
+				<h:inputText value="#{lectorBean.lector.firstname}" required="false">
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Příjmení"></h:outputLabel>
+				<h:inputText value="#{lectorBean.lector.surname}" required="false">
+				</h:inputText>
+				<h:outputLabel rendered="true" value="E-mail"></h:outputLabel>
+				<h:inputText value="#{lectorBean.lector.email}" required="true"
+					validatorMessage="Neplatný e-mail." requiredMessage="Není zadán e-mail.">
+					<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Heslo"></h:outputLabel>
+				<h:inputText value="#{lectorBean.lector.password}" required="true"
+					requiredMessage="Není zadáno heslo.">
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Kvalifikace"></h:outputLabel>
+				<h:inputText value="#{lectorBean.lector.qualification}" required="false">
+				</h:inputText>
+			</h:panelGrid>
+			
+			<h2>Zodpovídá za kurzy</h2>
+			<h:dataTable value="#{lectorBean.lector.courses}"
+			             var="course">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Název"/>
+	                </f:facet>
+					<h:outputText value="#{course.name}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Popis"/>
+	                </f:facet>
+					<h:outputText value="#{course.description}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Cena"/>
+	                </f:facet>
+					<h:outputText value="#{course.price}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandLink action="#{lectorBean.actionCourseDel(course)}">Zrušit přiřazení</h:commandLink>
+				</h:column>
+			</h:dataTable>
+			
+			
+			<h2>Vede otevřené kurzy</h2>
+			<h:dataTable value="#{lectorBean.lector.openCourses}"
+			             var="openCourse">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Název"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.course.name}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Místo"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.place}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Kapacita"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.capacity}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Datum zahájení"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.startDate}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Datum ukončení"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.endDate}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Přihlášených klientů"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.clients.size()}"></h:outputText>
+				</h:column>
+				
+				<h:column>
+					<h:commandLink action="#{lectorBean.actionOpenCourseDel(openCourse)}">Zrušit přiřazení</h:commandLink>
+				</h:column>
+			</h:dataTable>
+
+			
+			<p>
+			<h:commandButton action="#{lectorBean.actionUpdate}" value="Aktualizuj">
+			</h:commandButton>
+			&nbsp;
+			<h:commandButton action="cancel" value="Zrušit">
+			</h:commandButton>
+			</p>
+			
+		</h:form>
+	
+	</ui:define>
+</ui:composition>
+</html>

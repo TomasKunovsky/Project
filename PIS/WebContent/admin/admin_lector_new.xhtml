@@ -6,7 +6,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition template="template.xhtml">
+<ui:composition template="../template.xhtml">
 
 	<ui:define name="content">
 		<h:form>
@@ -17,8 +17,8 @@
 					requiredMessage="Není zadán login.">
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Telefon"></h:outputLabel>
-				<h:inputText value="#{lectorBean.lector.telephoneNumber}" required="false"
-					validatorMessage="Neplatný telefon.">
+				<h:inputText value="#{lectorBean.lector.telephoneNumber}" required="true"
+					validatorMessage="Neplatný telefon." requiredMessage="Není zadán telefon.">
 					<f:validateLength minimum="9" maximum="13"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Křesní jméno"></h:outputLabel>
@@ -28,8 +28,8 @@
 				<h:inputText value="#{lectorBean.lector.surname}" required="false">
 				</h:inputText>
 				<h:outputLabel rendered="true" value="E-mail"></h:outputLabel>
-				<h:inputText value="#{lectorBean.lector.email}" required="false"
-					validatorMessage="Neplatný e-mail.">
+				<h:inputText value="#{lectorBean.lector.email}" required="true"
+					validatorMessage="Neplatný e-mail." requiredMessage="Není zadán e-mail.">
 					<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Heslo"></h:outputLabel>

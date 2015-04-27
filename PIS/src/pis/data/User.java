@@ -52,5 +52,28 @@ public class User {
 		this.password = password;
 	}
 	
+	public String getName() {
+		return firstname + " " + surname;
+	}
+	
+	@Override
+	public String toString() {
+		if (getName().equals(" ")) {
+			return getLogin();
+		} else {
+			return getLogin() + " : " + getName();
+		}
+	}
+	
+	@Override
+	public boolean equals(Object other)
+    {
+		if (other == null) return false;
+        if (other instanceof User)
+            return ((User) other).getLogin().equals(login);
+        else
+            return false;
+    }
+	
 	
 }

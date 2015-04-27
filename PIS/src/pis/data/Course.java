@@ -85,6 +85,14 @@ public class Course {
 		this.clients = clients;
 	}
 	
+	public boolean equals(Object other)
+    {
+        if (other instanceof Course)
+            return ((Course) other).getId() == id;
+        else
+            return false;
+    }
+	
 	
 	
 }

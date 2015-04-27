@@ -6,10 +6,10 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition template="template.xhtml">
+<ui:composition template="../template.xhtml">
 	<ui:define name="content">
 
-		<h2>Lektoři</h2>
+		<h2>Přiřazení zodpovědného lektora</h2>
 		
 		<h:form>
 			<h:dataTable value="#{lectorBean.lectors}" var="lector">
@@ -50,17 +50,13 @@
 					<h:outputText value="#{lector.qualification}"></h:outputText>
 				</h:column>
 				<h:column>
-					<h:commandLink action="#{lectorBean.actionEdit(lector)}">
-						<h:outputText value="Uprav"></h:outputText>
-					</h:commandLink>
-					&nbsp;
-					<h:commandLink action="#{lectorBean.actionDelete(lector)}">
-						<h:outputText value="Odstranit"></h:outputText>
+					<h:commandLink action="#{courseBean.actionLectorEdit(lector)}">
+						<h:outputText value="Přiřadit"></h:outputText>
 					</h:commandLink>
 				</h:column>
 			</h:dataTable>
-			<h:commandLink action="#{lectorBean.actionNew}">
-				<h:outputText value="Vytvořit lektora"></h:outputText>
+			<h:commandLink action="#{courseBean.actionLectorEdit()}">
+				<h:outputText value="Nastavit bez lektora"></h:outputText>
 			</h:commandLink>
 	
 		</h:form>

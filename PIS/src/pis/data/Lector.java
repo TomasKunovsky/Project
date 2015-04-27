@@ -1,6 +1,5 @@
 package pis.data;
 
-import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 
 import java.util.Collection;
@@ -8,15 +7,20 @@ import java.util.Vector;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.PreRemove;
+
+import static javax.persistence.CascadeType.ALL;
+import org.eclipse.persistence.annotations.PrivateOwned;
+import static javax.persistence.CascadeType.REFRESH;
 
 @Entity
 public class Lector extends User {
 	private String qualification;
-	@OneToMany(fetch = EAGER, cascade = ALL, mappedBy = "lector", orphanRemoval = false)
+	@OneToMany(fetch = EAGER, mappedBy = "lector", orphanRemoval = false)
 	private Collection<Lesson> lessons;
-	@OneToMany(fetch = EAGER, cascade = ALL, mappedBy = "lector", orphanRemoval = false)
+	@OneToMany(fetch = EAGER, mappedBy = "lector",  orphanRemoval = false)
 	private Collection<Course> courses;
-	@OneToMany(fetch = EAGER, cascade = ALL, mappedBy = "lector", orphanRemoval = false)
+	@OneToMany(fetch = EAGER, mappedBy = "lector",  orphanRemoval = false)
 	private Collection<OpenCourse> openCourses;
 	
 	public Lector() {
@@ -50,6 +54,4 @@ public class Lector extends User {
 		this.openCourses = openCourses;
 	}
 	
-	
-
 }
