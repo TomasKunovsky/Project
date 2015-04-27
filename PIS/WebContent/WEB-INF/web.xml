@@ -53,7 +53,7 @@
   <!-- zoznam stranok, kde ma pristup iba admin -->
   <filter-mapping>
      <filter-name>AdminAuthorizationFilter</filter-name>
-     <url-pattern>/faces/admin_*</url-pattern>
+     <url-pattern>/faces/admin/*</url-pattern>
      <dispatcher>REQUEST</dispatcher>
      <dispatcher>FORWARD</dispatcher>
      <dispatcher>INCLUDE</dispatcher>

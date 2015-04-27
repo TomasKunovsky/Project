@@ -6,118 +6,118 @@
     version="2.2">
 
 	<navigation-rule>
-		<display-name>admin_lector_list.xhtml</display-name>
-		<from-view-id>/admin_lector_list.xhtml</from-view-id>
+		<display-name>admin/admin_lector_list.xhtml</display-name>
+		<from-view-id>/admin/admin_lector_list.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>new</from-outcome>
-			<to-view-id>/admin_lector_new.xhtml</to-view-id>
+			<to-view-id>/admin/admin_lector_new.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>admin_lector_new.xhtml</display-name>
-		<from-view-id>/admin_lector_new.xhtml</from-view-id>
+		<display-name>admin/admin_lector_new.xhtml</display-name>
+		<from-view-id>/admin/admin_lector_new.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>insert</from-outcome>
-			<to-view-id>/admin_lector_list.xhtml</to-view-id>
+			<to-view-id>/admin/admin_lector_list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>admin_lector_list.xhtml</display-name>
-		<from-view-id>/admin_lector_list.xhtml</from-view-id>
+		<display-name>admin/admin_lector_list.xhtml</display-name>
+		<from-view-id>/admin/admin_lector_list.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>delete</from-outcome>
-			<to-view-id>/admin_lector_list.xhtml</to-view-id>
+			<to-view-id>/admin/admin_lector_list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>admin_lector_list.xhtml</display-name>
-		<from-view-id>/admin_lector_list.xhtml</from-view-id>
+		<display-name>admin/admin_lector_list.xhtml</display-name>
+		<from-view-id>/admin/admin_lector_list.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>edit</from-outcome>
-			<to-view-id>/admin_lector_edit.xhtml</to-view-id>
+			<to-view-id>/admin/admin_lector_edit.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>admin_lector_edit.xhtml</display-name>
-		<from-view-id>/admin_lector_edit.xhtml</from-view-id>
+		<display-name>admin/admin_lector_edit.xhtml</display-name>
+		<from-view-id>/admin/admin_lector_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>update</from-outcome>
-			<to-view-id>/admin_lector_list.xhtml</to-view-id>
+			<to-view-id>/admin/admin_lector_list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>admin_lector_edit.xhtml</display-name>
-		<from-view-id>/admin_lector_edit.xhtml</from-view-id>
+		<display-name>admin/admin_lector_edit.xhtml</display-name>
+		<from-view-id>/admin/admin_lector_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
-			<to-view-id>/admin_lector_list.xhtml</to-view-id>
+			<to-view-id>/admin/admin_lector_list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	
 	<navigation-rule>
-		<display-name>admin_course_list.xhtml</display-name>
-		<from-view-id>/admin_course_list.xhtml</from-view-id>
+		<display-name>admin/admin_course_list.xhtml</display-name>
+		<from-view-id>/admin/admin_course_list.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>new</from-outcome>
-			<to-view-id>/admin_course_new.xhtml</to-view-id>
+			<to-view-id>/admin/admin_course_new.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>admin_course_new.xhtml</display-name>
-		<from-view-id>/admin_course_new.xhtml</from-view-id>
+		<display-name>admin/admin_course_new.xhtml</display-name>
+		<from-view-id>/admin/admin_course_new.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>admin_lector_select</from-outcome>
-			<to-view-id>/admin_course_new_lector_select.xhtml</to-view-id>
+			<from-outcome>lector_select</from-outcome>
+			<to-view-id>/admin/admin_course_new_lector_select.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>admin_course_new_lector_select.xhtml</display-name>
-		<from-view-id>/admin_course_new_lector_select.xhtml</from-view-id>
+		<display-name>admin/admin_course_new_lector_select.xhtml</display-name>
+		<from-view-id>/admin/admin_course_new_lector_select.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>insert</from-outcome>
-			<to-view-id>/admin_course_list.xhtml</to-view-id>
+			<to-view-id>/admin/admin_course_list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>admin_course_list.xhtml</display-name>
-		<from-view-id>/admin_course_list.xhtml</from-view-id>
+		<display-name>admin/admin_course_list.xhtml</display-name>
+		<from-view-id>/admin/admin_course_list.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>delete</from-outcome>
-			<to-view-id>/admin_course_list.xhtml</to-view-id>
+			<to-view-id>/admin/admin_course_list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>admin_course_list.xhtml</display-name>
-		<from-view-id>/admin_course_list.xhtml</from-view-id>
+		<display-name>admin/admin_course_list.xhtml</display-name>
+		<from-view-id>/admin/admin_course_list.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>edit</from-outcome>
-			<to-view-id>/admin_course_edit.xhtml</to-view-id>
+			<to-view-id>/admin/admin_course_edit.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>admin_course_edit.xhtml</display-name>
-		<from-view-id>/admin_course_edit.xhtml</from-view-id>
+		<display-name>admin/admin_course_edit.xhtml</display-name>
+		<from-view-id>/admin/admin_course_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>update</from-outcome>
-			<to-view-id>/admin_course_list.xhtml</to-view-id>
+			<to-view-id>/admin/admin_course_list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>admin_course_edit.xhtml</display-name>
-		<from-view-id>/admin_course_edit.xhtml</from-view-id>
+		<display-name>admin/admin_course_edit.xhtml</display-name>
+		<from-view-id>/admin/admin_course_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
-			<to-view-id>/admin_course_list.xhtml</to-view-id>
+			<to-view-id>/admin/admin_course_list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
@@ -136,7 +136,17 @@
 		<from-view-id>/login.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>login_admin</from-outcome>
-			<to-view-id>/admin_screen.xhtml</to-view-id>
+			<to-view-id>/admin/admin_screen.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/*</display-name>
+		<from-view-id>/admin/*</from-view-id>
+		<navigation-case>
+			<from-outcome>logout</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 	</navigation-rule>
