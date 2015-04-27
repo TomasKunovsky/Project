@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 import pis.data.Course;
 import pis.data.Lector;
 import pis.service.CourseManager;
+import pis.service.LectorManager;
 
 
 
@@ -17,7 +18,10 @@ import pis.service.CourseManager;
 public class CourseBean {
 	@EJB
 	private CourseManager courseMgr;
+	@EJB
+	private LectorManager lectorMgr;
 	private Course course;
+	private Lector lector;
 	
 	public CourseBean() {
 		course = new Course();
@@ -52,7 +56,7 @@ public class CourseBean {
     {
 		lector.getCourses().add(course);
 		course.setLector(lector);
-        courseMgr.save(course);
+		lectorMgr.save(lector);
         return "insert";
     }
 	
@@ -60,23 +64,68 @@ public class CourseBean {
     {
         return "lector_select";
     }
+	
+	public String actionEditCourseLectorSelect()
+    {
+        return "lector_select";
+    }
 
 	public String actionUpdate()
     {
-        courseMgr.save(course);
+        if ((course.getLector() == null && lector != null) ||  course.getLector().equals(lector) == false ) {
+        	if (course.getLector() != null) {
+        		course.getLector().getCourses().remove(course);
+            	lectorMgr.save(course.getLector());
+        	}
+        	
+        	if (lector != null) {
+        		lector.getCourses().add(course);
+        		lectorMgr.save(lector);
+            }
+        	
+        	course.setLector(lector);
+            courseMgr.save(course);
+        }
+        	
         return "update";
     }
     
     public String actionEdit(Course course)
     {
     	setCourse(course);
+    	setLector(course.getLector());
     	return "edit";
     }
     
     public String actionDelete(Course course)
     {
+    	if (course.getLector() != null) {
+    		course.getLector().getCourses().remove(course);
+    		lectorMgr.save(course.getLector());
+    	}
+    	
     	courseMgr.remove(course);
     	return "delete";
     }
+
+	public Lector getLector() {
+		return lector;
+	}
+
+	public void setLector(Lector lector) {
+		this.lector = lector;
+	}
+	
+	public String actionLectorEdit() {
+		setLector(null);
+		return "edit";
+	}
+	
+	public String actionLectorEdit(Lector lector) {
+		setLector(lector);
+		return "edit";
+	}
+    
+    
 
 }

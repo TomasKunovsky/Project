@@ -122,6 +122,24 @@
 	</navigation-rule>
 	
 	<navigation-rule>
+		<display-name>admin/admin_course_edit.xhtml</display-name>
+		<from-view-id>/admin/admin_course_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>lector_select</from-outcome>
+			<to-view-id>/admin/admin_course_edit_lector_select.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/admin_course_edit_lector_select.xhtml</display-name>
+		<from-view-id>/admin/admin_course_edit_lector_select.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/admin/admin_course_edit.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<display-name>login.xhtml</display-name>
 		<from-view-id>/login.xhtml</from-view-id>
 		<navigation-case>

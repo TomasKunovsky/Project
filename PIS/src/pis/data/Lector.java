@@ -11,15 +11,16 @@ import javax.persistence.PreRemove;
 
 import static javax.persistence.CascadeType.ALL;
 import org.eclipse.persistence.annotations.PrivateOwned;
+import static javax.persistence.CascadeType.REFRESH;
 
 @Entity
 public class Lector extends User {
 	private String qualification;
-	@OneToMany(fetch = EAGER, mappedBy = "lector", orphanRemoval = false, cascade = ALL)
+	@OneToMany(fetch = EAGER, mappedBy = "lector", orphanRemoval = false)
 	private Collection<Lesson> lessons;
-	@OneToMany(fetch = EAGER, mappedBy = "lector", cascade = ALL, orphanRemoval = true)
+	@OneToMany(fetch = EAGER, mappedBy = "lector",  orphanRemoval = false)
 	private Collection<Course> courses;
-	@OneToMany(fetch = EAGER, mappedBy = "lector", cascade = ALL, orphanRemoval = true)
+	@OneToMany(fetch = EAGER, mappedBy = "lector",  orphanRemoval = false)
 	private Collection<OpenCourse> openCourses;
 	
 	public Lector() {
@@ -53,7 +54,4 @@ public class Lector extends User {
 		this.openCourses = openCourses;
 	}
 	
-	
-	
-
 }
