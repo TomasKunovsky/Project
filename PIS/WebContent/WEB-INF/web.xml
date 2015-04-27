@@ -50,10 +50,10 @@
      <dispatcher>INCLUDE</dispatcher>
   </filter-mapping>
   
-  <!-- TODO zmaz - len na ukazku -->
+  <!-- zoznam stranok, kde ma pristup iba admin -->
   <filter-mapping>
      <filter-name>AdminAuthorizationFilter</filter-name>
-     <url-pattern>/faces/lector_new.xhtml</url-pattern>
+     <url-pattern>/faces/admin_*</url-pattern>
      <dispatcher>REQUEST</dispatcher>
      <dispatcher>FORWARD</dispatcher>
      <dispatcher>INCLUDE</dispatcher>

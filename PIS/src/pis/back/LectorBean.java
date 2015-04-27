@@ -6,7 +6,9 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import pis.data.Course;
 import pis.data.Lector;
+import pis.data.OpenCourse;
 import pis.service.LectorManager;
 
 @ManagedBean
@@ -15,9 +17,12 @@ public class LectorBean {
 	@EJB
 	private LectorManager lectorMgr;
 	private Lector lector;
+	private Course course;
+	
 	
 	public LectorBean() {
 		lector = new Lector();
+		course = new Course();
 	}
 	
 	public Lector getLector() {
@@ -61,6 +66,18 @@ public class LectorBean {
     {
     	lectorMgr.remove(lector);
     	return "delete";
+    }
+    
+    public String actionCourseDel(Course course)
+    {
+        lector.getCourses().remove(course);
+        return "delete";
+    }
+    
+    public String actionOpenCourseDel(OpenCourse openCourse)
+    {
+        lector.getOpenCourses().remove(openCourse);
+        return "delete";
     }
 
 }
