@@ -38,6 +38,11 @@ public class OpenCoursesLectorBean {
 		return "change_capacity";
 	}
 	
+	public String changePlace(OpenCourse course) {
+		openCourse = course;
+		
+		return "change_place";
+	}
 	
 	public List<OpenCourse> getOpenCourses() {
 		return openCourseMngr.getOpenCourses(lector);

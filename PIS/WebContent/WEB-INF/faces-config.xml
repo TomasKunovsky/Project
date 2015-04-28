@@ -77,10 +77,46 @@
 	</navigation-rule>
 	
 	<navigation-rule>
+		<display-name>lector_opened_courses.xhtml</display-name>
+		<from-view-id>/lector_opened_courses.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>change_place</from-outcome>
+			<to-view-id>/lector_course_change_place.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_course_change_place.xhtml</display-name>
+		<from-view-id>/lector_course_change_place.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>update</from-outcome>
+			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_course_change_place.xhtml</display-name>
+		<from-view-id>/lector_course_change_place.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<display-name>lector_course_change_capacity.xhtml</display-name>
 		<from-view-id>/lector_course_change_capacity.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>update</from-outcome>
+			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_course_change_capacity.xhtml</display-name>
+		<from-view-id>/lector_course_change_capacity.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
 			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
