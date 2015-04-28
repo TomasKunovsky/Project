@@ -28,13 +28,17 @@
 					<f:facet name="header">
 	                    <h:outputText value="Začiatok"/>
 	                </f:facet>
-					<h:outputText value="#{course.startDate}"></h:outputText>
+					<h:outputText value="#{course.startDate}">
+						<f:convertDateTime type="date" locale="cs"/>
+					</h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 	                    <h:outputText value="Koniec"/>
 	                </f:facet>
-					<h:outputText value="#{course.endDate}"></h:outputText>
+					<h:outputText value="#{course.endDate}">
+						<f:convertDateTime type="date" locale="cs"/>
+					</h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
@@ -43,11 +47,11 @@
 					<h:outputText value="#{course.capacity}"></h:outputText>
 				</h:column>
 				<h:column>
-					<h:commandLink action="#{openCourseBean.addLection(course)}">
+					<h:commandLink action="#{openCoursesLectorBean.addLection(course)}">
 						<h:outputText value="Nová lekcia"></h:outputText>
 					</h:commandLink>
 					&nbsp;
-					<h:commandLink action="#{openCourseBean.changeCapacity(course)}">
+					<h:commandLink action="#{openCoursesLectorBean.changeCapacity(course)}">
 						<h:outputText value="Zmena kapacity"></h:outputText>
 					</h:commandLink>
 				</h:column>

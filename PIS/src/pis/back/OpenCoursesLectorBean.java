@@ -34,7 +34,6 @@ public class OpenCoursesLectorBean {
 	
 	public String changeCapacity(OpenCourse course) {
 		openCourse = course;
-		// TODO vytvor stranku
 		
 		return "change_capacity";
 	}
@@ -42,5 +41,19 @@ public class OpenCoursesLectorBean {
 	
 	public List<OpenCourse> getOpenCourses() {
 		return openCourseMngr.getOpenCourses(lector);
+	}
+	
+	public String actionUpdate() {
+		openCourseMngr.save(openCourse);
+		
+		return "update";
+	}
+
+	public OpenCourse getOpenCourse() {
+		return openCourse;
+	}
+
+	public void setOpenCourse(OpenCourse openCourse) {
+		this.openCourse = openCourse;
 	}
 }

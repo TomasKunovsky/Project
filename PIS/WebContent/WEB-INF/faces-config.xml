@@ -68,6 +68,24 @@
 	</navigation-rule>
 	
 	<navigation-rule>
+		<display-name>lector_opened_courses.xhtml</display-name>
+		<from-view-id>/lector_opened_courses.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>change_capacity</from-outcome>
+			<to-view-id>/lector_course_change_capacity.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_course_change_capacity.xhtml</display-name>
+		<from-view-id>/lector_course_change_capacity.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>update</from-outcome>
+			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<display-name>admin/admin_lector_edit.xhtml</display-name>
 		<from-view-id>/admin/admin_lector_edit.xhtml</from-view-id>
 		<navigation-case>

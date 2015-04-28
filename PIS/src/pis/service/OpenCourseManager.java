@@ -22,4 +22,8 @@ public class OpenCourseManager {
     			.getResultList();
     }
 
+	public void save(OpenCourse openCourse) {
+		em.merge(openCourse);
+	}
+
 }
