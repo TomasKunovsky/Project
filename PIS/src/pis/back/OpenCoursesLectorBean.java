@@ -12,6 +12,9 @@ import pis.data.OpenCourse;
 import pis.service.LessonManager;
 import pis.service.OpenCourseManager;
 
+/**
+ * Umoznuje manipulaciu s otvorenymi kurzmi, ktore podliehaju lektorovi.
+ */
 @ManagedBean
 @SessionScoped
 public class OpenCoursesLectorBean {
@@ -31,20 +34,6 @@ public class OpenCoursesLectorBean {
 		return "courses_list";
 	}
 	
-	public String addLesson(OpenCourse course) {
-		openCourse = course;
-		lesson = new Lesson();
-		lesson.setLector(lector);
-		lesson.setOpenCourse(openCourse);
-		
-		return "add_lesson";
-	}
-	
-	public String actionAddLesson() {
-		lessonMngr.save(lesson);
-		
-		return "created";
-	}
 	
 	public String changeCapacity(OpenCourse course) {
 		openCourse = course;
@@ -74,13 +63,5 @@ public class OpenCoursesLectorBean {
 
 	public void setOpenCourse(OpenCourse openCourse) {
 		this.openCourse = openCourse;
-	}
-
-	public Lesson getLesson() {
-		return lesson;
-	}
-
-	public void setLesson(Lesson lesson) {
-		this.lesson = lesson;
 	}
 }
