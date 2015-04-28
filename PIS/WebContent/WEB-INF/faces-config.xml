@@ -71,6 +71,33 @@
 		<display-name>lector_opened_courses.xhtml</display-name>
 		<from-view-id>/lector_opened_courses.xhtml</from-view-id>
 		<navigation-case>
+			<from-outcome>add_lesson</from-outcome>
+			<to-view-id>/lector_new_lesson.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_new_lesson.xhtml</display-name>
+		<from-view-id>/lector_new_lesson.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>created</from-outcome>
+			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_new_lesson.xhtml</display-name>
+		<from-view-id>/lector_new_lesson.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_opened_courses.xhtml</display-name>
+		<from-view-id>/lector_opened_courses.xhtml</from-view-id>
+		<navigation-case>
 			<from-outcome>change_capacity</from-outcome>
 			<to-view-id>/lector_course_change_capacity.xhtml</to-view-id>
 		</navigation-case>

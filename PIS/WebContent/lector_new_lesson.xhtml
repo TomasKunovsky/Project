@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/template.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+			<h:messages layout="table"></h:messages>
+			<h:panelGrid columns="2">
+				<h:outputLabel rendered="true" value="Cena"></h:outputLabel>
+				<h:inputText value="#{openCoursesLectorBean.lesson.cost}" required="true" requiredMessage="Nie je zadaná cena.">
+					<f:convertNumber currencyCode="CZK" type="currency" />
+					<f:validateLongRange minimum="0" />
+				</h:inputText>
+				
+				<h:outputLabel rendered="true" value="Popis"></h:outputLabel>
+				<h:inputText value="#{openCoursesLectorBean.lesson.description}" required="true" requiredMessage="Nie je zadaný popis.">
+				</h:inputText>
+				
+				<h:outputLabel rendered="true" value="Dátum"></h:outputLabel>
+				<h:inputText value="#{openCoursesLectorBean.lesson.date}" required="true" requiredMessage="Nie je zadaný dátum.">
+					<f:convertDateTime type="date" locale="cs"/>
+				</h:inputText>
+				
+				<h:outputLabel rendered="true" value="Začiatok"></h:outputLabel>
+				<h:inputText value="#{openCoursesLectorBean.lesson.start}" required="true" requiredMessage="Nie je zadaný čas začiatku.">
+					<f:convertDateTime type="time" pattern="HH:mm"/>
+				</h:inputText>
+					
+				<h:outputLabel rendered="true" value="Koniec"></h:outputLabel>
+				<h:inputText value="#{openCoursesLectorBean.lesson.end}" required="true" requiredMessage="Nie je zadaný čas konca.">
+					<f:convertDateTime type="time" pattern="HH:mm"/>
+				</h:inputText>
+				
+				<h:commandButton action="#{openCoursesLectorBean.actionAddLesson}" value="Vytvořit">
+				</h:commandButton>
+				
+				<h:commandButton action="cancel" value="Zrušit">
+				</h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>
+</html>
