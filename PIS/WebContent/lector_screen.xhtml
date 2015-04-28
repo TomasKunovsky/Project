@@ -14,6 +14,7 @@
 		<ul>
 			<li><h:commandLink value="Môj profil" action="#{lectorBean.actionEdit(authenticationBean.loggedLector)}"></h:commandLink></li>
 			<li><h:commandLink value="Moje otvorené kurzy" action="#{openCoursesLectorBean.actionOpenCourses(authenticationBean.loggedLector)}"></h:commandLink></li>
+			<li><h:commandLink value="Mnou spravované kurzy" action="#{coursesLectorBean.actionCourses(authenticationBean.loggedLector)}"></h:commandLink></li>
 			<li><h:commandLink value="Moje lekcie" action="#{lessonsLectorBean.actionLessons(authenticationBean.loggedLector)}"></h:commandLink></li>
 		</ul>		
 	</h:form>

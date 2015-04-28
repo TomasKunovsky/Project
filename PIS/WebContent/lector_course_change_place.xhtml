@@ -8,6 +8,7 @@
 
 <ui:composition template="template.xhtml">
 	<ui:define name="content">
+		<h1>Zmena miesta konania otvoreného kurzu</h1>
 	
 		<h:form>
 			<h:messages layout="table"></h:messages>
@@ -19,7 +20,7 @@
 			
 			<p>
 				<h:commandButton action="#{openCoursesLectorBean.actionUpdate}" value="Aktualizuj"></h:commandButton>
-				<h:commandButton action="cancel" value="Zrušit"></h:commandButton>
+				<h:commandButton action="cancel" value="Zrušit" immediate="true"></h:commandButton>
 			</p>
 			
 		</h:form>

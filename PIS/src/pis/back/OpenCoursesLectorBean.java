@@ -31,7 +31,7 @@ public class OpenCoursesLectorBean {
 	public String actionOpenCourses(Lector lector) {
 		this.lector = lector;
 		
-		return "courses_list";
+		return "open_courses_list";
 	}
 	
 	

@@ -8,7 +8,8 @@
 
 <ui:composition template="template.xhtml">
 	<ui:define name="content">
-	
+		<h1>Editácia profilu lektora</h1>
+			
 		<h:form>
 			<h:messages layout="table"></h:messages>
 			<h:panelGrid columns="2">
@@ -40,7 +41,7 @@
 			<p>
 			<h:commandButton action="#{lectorBean.actionUpdate}" value="Aktualizuj">
 			</h:commandButton>
-			<h:commandButton action="cancel" value="Zrušit">
+			<h:commandButton action="cancel" value="Zrušit" immediate="true">
 			</h:commandButton>
 			</p>
 			

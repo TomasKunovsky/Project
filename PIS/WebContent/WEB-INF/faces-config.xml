@@ -53,6 +53,10 @@
 		<display-name>lector_screen.xhtml</display-name>
 		<from-view-id>/lector_screen.xhtml</from-view-id>
 		<navigation-case>
+			<from-outcome>courses_list</from-outcome>
+			<to-view-id>/lector_courses.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>lesson_list</from-outcome>
 			<to-view-id>/lector_lessons.xhtml</to-view-id>
 		</navigation-case>
@@ -61,8 +65,30 @@
 			<to-view-id>/lector_profile_edit.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>courses_list</from-outcome>
+			<from-outcome>open_courses_list</from-outcome>
 			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_course_edit.xhtml</display-name>
+		<from-view-id>/lector_course_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/lector_courses.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/lector_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>lector_courses.xhtml</display-name>
+		<from-view-id>/lector_courses.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/lector_course_edit.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	

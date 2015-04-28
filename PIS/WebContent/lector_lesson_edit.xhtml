@@ -6,9 +6,10 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition template="/template.xhtml">
-
+<ui:composition template="/template.xhtml">	
 	<ui:define name="content">
+		<h1>Lekcia</h1>
+	
 		<h:form>
 			<h:messages layout="table"></h:messages>
 			<h:panelGrid columns="2">
@@ -40,7 +41,7 @@
 				<h:commandButton action="#{lessonsLectorBean.actionEditLesson}" value="Odoslať">
 				</h:commandButton>
 				
-				<h:commandButton action="cancel" value="Zrušit">
+				<h:commandButton action="cancel" value="Zrušit" immediate="true">
 				</h:commandButton>
 			</h:panelGrid>
 		</h:form>
