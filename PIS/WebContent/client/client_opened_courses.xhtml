@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+	<h1>Prihlásenie na otvorené kurzy</h1>
+		
+		<h:form>
+			<h:dataTable value="#{openCoursesClientBean.openCourses}" var="course">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Nazov"/>
+	                </f:facet>
+					<h:outputText value="#{course.course.name}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Miesto"/>
+	                </f:facet>
+					<h:outputText value="#{course.place}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Začiatok"/>
+	                </f:facet>
+					<h:outputText value="#{course.startDate}">
+						<f:convertDateTime type="date" locale="cs"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Koniec"/>
+	                </f:facet>
+					<h:outputText value="#{course.endDate}">
+						<f:convertDateTime type="date" locale="cs"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Obsadenosť"/>
+	                </f:facet>
+					<h:outputText value="#{course.clients.size()}"/>/<h:outputText value="#{course.capacity}"/>
+				</h:column>
+				<h:column>
+					<h:commandLink
+							rendered="#{course.clients.size() lt course.capacity and !course.clients.contains(authenticationBean.loggedClient)}" 
+							action="#{openCoursesClientBean.actionStartRegistation(course, authenticationBean.loggedClient)}">
+						<h:outputText value="Registrovať"></h:outputText>
+					</h:commandLink>
+					<h:outputText 
+						rendered="#{course.clients.contains(authenticationBean.loggedClient)}"
+						value="STE PRIHLÁSENÝ"/>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	
+	</ui:define>
+</ui:composition>
+</html>

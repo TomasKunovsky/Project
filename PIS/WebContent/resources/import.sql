@@ -6,6 +6,11 @@ insert into user (LOGIN, DTYPE, EMAIL, FIRSTNAME, PASSWORD, SURNAME, TELEPHONENU
 -- lector
 INSERT INTO `user` (`LOGIN`, `DTYPE`, `EMAIL`, `FIRSTNAME`, `PASSWORD`, `SURNAME`, `TELEPHONENUMBER`, `QUALIFICATION`) VALUES ('lector', 'Lector', 'john@doe.com', 'John', 'lector', 'Doe', '495512344', 'Zaklinac hadov');
 
+-- users
+INSERT INTO `user` (`LOGIN`, `DTYPE`, `EMAIL`, `FIRSTNAME`, `PASSWORD`, `SURNAME`, `TELEPHONENUMBER`, `QUALIFICATION`) VALUES
+('client1', 'Client', 'client1@client.com', 'Janko', 'client1', 'Mrkvicka', '123465789', NULL),
+('client2', 'Client', 'client2@client.com', 'Jozef', 'client2', 'Maly', '123465789', NULL);
+
 -- course
 INSERT INTO `course` (`ID`, `DESCRIPTION`, `NAME`, `PRICE`, `LECTOR_LOGIN`) VALUES (1, 'Test popis', 'Test', 995, 'lector');
 

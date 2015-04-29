@@ -50,6 +50,48 @@
 	</navigation-rule>
 	
 	<navigation-rule>
+		<display-name>client/client_screen.xhtml</display-name>
+		<from-view-id>/client/client_screen.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>opened_courses</from-outcome>
+			<to-view-id>/client/client_opened_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>client/client_opened_courses.xhtml</display-name>
+		<from-view-id>/client/client_opened_courses.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>register</from-outcome>
+			<to-view-id>/client/client_register_on_course.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>client/client_register_on_course.xhtml</display-name>
+		<from-view-id>/client/client_register_on_course.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>ok</from-outcome>
+			<to-view-id>/client/client_registered.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/client/client_opened_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>client/client_registered.xhtml</display-name>
+		<from-view-id>/client/client_registered.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>opened_courses</from-outcome>
+			<to-view-id>/client/client_opened_courses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	
+	<navigation-rule>
 		<display-name>lector/lector_screen.xhtml</display-name>
 		<from-view-id>/lector/lector_screen.xhtml</from-view-id>
 		<navigation-case>

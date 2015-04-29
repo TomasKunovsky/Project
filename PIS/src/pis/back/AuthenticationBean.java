@@ -33,6 +33,7 @@ public class AuthenticationBean
     private String password;
     int loggedRole = NOBODY;
 	Client loggedClient;
+
 	Admin loggedAdmin;
 	Lector loggedLector;
     
@@ -167,5 +168,13 @@ public class AuthenticationBean
 
 	public Lector getLoggedLector() {
 		return loggedLector;
+	}
+	
+	public Client getLoggedClient() {
+		return loggedClient;
+	}
+
+	public Admin getLoggedAdmin() {
+		return loggedAdmin;
 	}
 }

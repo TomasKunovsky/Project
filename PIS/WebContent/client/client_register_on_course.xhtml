@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+		<h1>Prihlásenie na kurz #{openCoursesClientBean.openCourse.course.name}</h1>
+		
+		<h:form>
+			<h:panelGrid columns="2">
+				<span>Kurz</span>
+				<h:outputText value="#{openCoursesClientBean.openCourse.course.name}"/>
+				
+				<span>Začiatok</span>
+				<h:outputText rendered="true" value="#{openCoursesClientBean.openCourse.startDate}">
+					<f:convertDateTime type="date" locale="cs"/>
+				</h:outputText>
+				
+				<span>Ukončenie</span>
+				<h:outputText rendered="true" value="#{openCoursesClientBean.openCourse.endDate}">
+					<f:convertDateTime type="date" locale="cs"/>
+				</h:outputText>
+				
+				<span>Popis</span>
+				<h:outputText rendered="true" value="#{openCoursesClientBean.openCourse.course.description}"/>				
+				
+				<span>Cena</span>
+				<h:outputText rendered="true" value="#{openCoursesClientBean.openCourse.course.price}">
+					<f:convertNumber currencyCode="CZK" type="currency" />
+				</h:outputText>
+			</h:panelGrid>
+			
+			<br/>
+			<h:commandButton action="#{openCoursesClientBean.actionRegister}" value="Potvrdzujem prihlásenie"/>	
+			<h:commandButton action="cancel" value="Zrušiť"/>	
+		</h:form>
+		
+	</ui:define>
+</ui:composition>
+</html>

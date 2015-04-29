@@ -21,6 +21,12 @@ public class OpenCourseManager {
     			.setParameter("lec", lector)
     			.getResultList();
     }
+    
+    @SuppressWarnings("unchecked")
+    public List<OpenCourse> getOpenCourses() {
+    	return em.createQuery("SELECT c FROM OpenCourse c")
+    			.getResultList();
+    }
 
 	public void save(OpenCourse openCourse) {
 		em.merge(openCourse);
