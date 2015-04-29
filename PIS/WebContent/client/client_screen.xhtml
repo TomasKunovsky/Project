@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+	<h1>Obrazovka klienta</h1>
+	
+	<h:form>
+		<ul>
+			<li><h:commandLink value="Moje kurzy" action="#{myCoursesClientBean.actionMyCourses(authenticationBean.loggedClient)}"/></li>
+			<li><h:commandLink value="Otvorené kurzy" action="opened_courses"/></li>
+			<li><h:commandLink value="Všetky kurzy" action="courses"/></li>
+		</ul>		
+	</h:form>
+	
+	</ui:define>
+</ui:composition>
+</html>
