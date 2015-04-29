@@ -21,12 +21,11 @@
 				<h:inputTextarea value="#{coursesLectorBean.course.description}" required="true" requiredMessage="Nie je zadaný popis.">
 				</h:inputTextarea>
 								
-				<h:commandButton action="#{coursesLectorBean.actionUpdate}" value="Odoslať">
-				</h:commandButton>
-
-				<h:commandButton action="cancel" value="Zrušit" immediate="true">
-				</h:commandButton>
 			</h:panelGrid>
+			
+			<br/>
+			<h:commandButton action="#{coursesLectorBean.actionUpdate}" value="Odoslať"/>
+			<h:commandButton action="cancel" value="Zrušit" immediate="true"/>
 		</h:form>
 	</ui:define>
 	

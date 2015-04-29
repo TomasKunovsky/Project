@@ -29,21 +29,25 @@
 				</h:inputText>
 				
 				<h:outputLabel rendered="true" value="Začiatok"></h:outputLabel>
-				<h:inputText value="#{lessonsLectorBean.lesson.start}" required="true" requiredMessage="Nie je zadaný čas začiatku.">
+				<h:inputText value="#{lessonsLectorBean.lesson.start}" 
+						required="true" 
+						requiredMessage="Nie je zadaný čas začiatku."
+						converterMessage="Čas musí byť vo formáte HH:mm">
 					<f:convertDateTime type="time" pattern="HH:mm"/>
 				</h:inputText>
 					
 				<h:outputLabel rendered="true" value="Koniec"></h:outputLabel>
-				<h:inputText value="#{lessonsLectorBean.lesson.end}" required="true" requiredMessage="Nie je zadaný čas konca.">
+				<h:inputText value="#{lessonsLectorBean.lesson.end}" 
+						required="true" 
+						requiredMessage="Nie je zadaný čas konca."
+						converterMessage="Čas musí byť vo formáte HH:mm">
 					<f:convertDateTime type="time" pattern="HH:mm"/>
-				</h:inputText>
-				
-				<h:commandButton action="#{lessonsLectorBean.actionEditLesson}" value="Odoslať">
-				</h:commandButton>
-				
-				<h:commandButton action="cancel" value="Zrušit" immediate="true">
-				</h:commandButton>
+				</h:inputText>	
 			</h:panelGrid>
+
+			<br/>
+			<h:commandButton action="#{lessonsLectorBean.actionEditLesson}" value="Odoslať"/>
+			<h:commandButton action="cancel" value="Zrušit" immediate="true"/>
 		</h:form>
 	</ui:define>
 	

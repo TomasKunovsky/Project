@@ -31,7 +31,7 @@
 						<h:outputText value="Začiatok" />
 					</f:facet>
 					<h:outputText value="#{lesson.start}">
-						<f:convertDateTime type="time" locale="cs" />
+						<f:convertDateTime type="time" pattern="HH:mm" />
 					</h:outputText>
 				</h:column>
 				<h:column>
@@ -39,7 +39,7 @@
 						<h:outputText value="Koniec" />
 					</f:facet>
 					<h:outputText value="#{lesson.end}">
-						<f:convertDateTime type="time" locale="cs" />
+						<f:convertDateTime type="time" pattern="HH:mm" />
 					</h:outputText>
 				</h:column>
 				<h:column>
@@ -52,13 +52,12 @@
 				</h:column>
 				
 				<h:column>
-					<h:commandLink action="#{lessonsLectorBean.actionEditLesson(lesson)}">
-						<h:outputText value="Upraviť"></h:outputText>
+					<h:commandLink action="#{lessonsLectorBean.actionEditLessonPresence(lesson)}">
+						<h:outputText value="Uprav dochádzku"></h:outputText>
 					</h:commandLink>
 					&nbsp;
-					<h:commandLink
-						action="#{lessonsLectorBean.actionChangePresence(course)}">
-						<h:outputText value="Uprav dochádzku"></h:outputText>
+					<h:commandLink action="#{lessonsLectorBean.actionEditLesson(lesson)}">
+						<h:outputText value="Upraviť"></h:outputText>
 					</h:commandLink>
 				</h:column>
 			</h:dataTable>

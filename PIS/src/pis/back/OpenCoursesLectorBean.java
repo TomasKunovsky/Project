@@ -35,13 +35,13 @@ public class OpenCoursesLectorBean {
 	}
 	
 	
-	public String changeCapacity(OpenCourse course) {
+	public String actionChangeCapacity(OpenCourse course) {
 		openCourse = course;
 		
 		return "change_capacity";
 	}
 	
-	public String changePlace(OpenCourse course) {
+	public String actionChangePlace(OpenCourse course) {
 		openCourse = course;
 		
 		return "change_place";

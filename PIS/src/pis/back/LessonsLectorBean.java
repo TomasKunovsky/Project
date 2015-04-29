@@ -3,9 +3,12 @@ package pis.back;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
+import pis.data.Client;
 import pis.data.Lector;
 import pis.data.Lesson;
 import pis.data.OpenCourse;
@@ -43,13 +46,25 @@ public class LessonsLectorBean {
 		return "edit";
 	}
 	
-	public String actionChangePresence(Lesson lesson) {
+	public String actionEditLessonPresence(Lesson lesson) {
 		this.lesson = lesson;
 		
 		return "presence";
 	}
 	
 	public String actionUpdate() {
+		lessonMngr.save(lesson);
+		
+		return "update";
+	}
+	
+	public String actionSetPresent(Client client, boolean present) {
+		if (present) {
+			lesson.getClients().add(client);
+		} else {
+			lesson.getClients().remove(client);
+		}
+		
 		lessonMngr.save(lesson);
 		
 		return "update";
@@ -66,9 +81,19 @@ public class LessonsLectorBean {
 	}
 	
 	public String actionEditLesson() {
-		lessonMngr.save(lesson);
+		String ret = null;
 		
-		return justUpdate ? "update" : "create";
+		if (lesson.getEnd().before(lesson.getStart())) {
+		    FacesMessage errorMessage = new FacesMessage("»as zaËiatku lekcie musÌ byù pred koncom.");
+		    errorMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
+		    FacesContext.getCurrentInstance().addMessage(null, errorMessage);
+			ret = null;
+		} else {
+			lessonMngr.save(lesson);
+			ret = justUpdate ? "update" : "create";			
+		}
+		
+		return ret;
 	}
 
 	public Lesson getLesson() {

@@ -93,11 +93,28 @@
 	</navigation-rule>
 	
 	<navigation-rule>
+		<display-name>lector_lesson_presence.xhtml</display-name>
+		<from-view-id>/lector_lesson_presence.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>update</from-outcome>
+			<to-view-id>/lector_lesson_presence.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>back</from-outcome>
+			<to-view-id>/lector_lessons.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<display-name>lector_lessons.xhtml</display-name>
 		<from-view-id>/lector_lessons.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>edit</from-outcome>
 			<to-view-id>/lector_lesson_edit.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>presence</from-outcome>
+			<to-view-id>/lector_lesson_presence.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	

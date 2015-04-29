@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="template.xhtml">
+	<ui:define name="content">
+		<h1>Dochádzka klientov</h1>
+		
+		<h2>Lekcia:</h2>
+		
+		<h:panelGrid columns="2">
+			<span>Kurz</span>
+			<h:outputText value="#{lessonsLectorBean.lesson.openCourse.course.name}"/>
+			
+			<span>Dátum</span>
+			<h:outputText rendered="true" value="#{lessonsLectorBean.lesson.date}">
+				<f:convertDateTime type="date" locale="cs"/>
+			</h:outputText>
+			
+			<span>Čas</span>
+			<h:panelGroup>
+				<h:outputText rendered="true" value="#{lessonsLectorBean.lesson.start}">
+					<f:convertDateTime type="time" pattern="HH:mm"/>
+				</h:outputText>
+				&nbsp;-&nbsp;
+				<h:outputText rendered="true" value="#{lessonsLectorBean.lesson.end}">
+					<f:convertDateTime type="time" pattern="HH:mm"/>
+				</h:outputText>		
+			</h:panelGroup>
+		</h:panelGrid>
+
+		<h2>Prihlásení klienti:</h2>
+		
+		<h:form>
+			<h:dataTable value="#{lessonsLectorBean.lesson.openCourse.clients}" var="client">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Login" />
+					</f:facet>
+					<h:outputText value="#{client.login}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Meno" />
+					</f:facet>
+					<h:outputText value="#{client.firstname}">
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Priezvisko" />
+					</f:facet>
+					<h:outputText value="#{client.surname}">
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Stav" />
+					</f:facet>
+					<h:outputText rendered="true" 
+						value="#{lessonsLectorBean.lesson.clients.contains(client) ? 'prítomný' : 'neprítomný'}">
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandLink rendered="#{!lessonsLectorBean.lesson.clients.contains(client)}" 
+						action="#{lessonsLectorBean.actionSetPresent(client, true)}">
+						<h:outputText value="Nastav prítomný"></h:outputText>
+					</h:commandLink>
+					<h:commandLink rendered="#{lessonsLectorBean.lesson.clients.contains(client)}" 
+						action="#{lessonsLectorBean.actionSetPresent(client, false)}">
+						<h:outputText value="Nastav neprítomný"></h:outputText>
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+			<br/>			
+			<h:commandLink action="back">
+				<h:outputText value="Späť na zoznam lekcií"></h:outputText>
+			</h:commandLink>		
+		</h:form>
+		
+	
+	</ui:define>
+</ui:composition>
+</html>
