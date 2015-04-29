@@ -50,165 +50,165 @@
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_screen.xhtml</display-name>
-		<from-view-id>/lector_screen.xhtml</from-view-id>
+		<display-name>lector/lector_screen.xhtml</display-name>
+		<from-view-id>/lector/lector_screen.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>courses_list</from-outcome>
-			<to-view-id>/lector_courses.xhtml</to-view-id>
+			<to-view-id>/lector/lector_courses.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>lesson_list</from-outcome>
-			<to-view-id>/lector_lessons.xhtml</to-view-id>
+			<to-view-id>/lector/lector_lessons.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>edit</from-outcome>
-			<to-view-id>/lector_profile_edit.xhtml</to-view-id>
+			<to-view-id>/lector/lector_profile_edit.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>open_courses_list</from-outcome>
-			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_course_edit.xhtml</display-name>
-		<from-view-id>/lector_course_edit.xhtml</from-view-id>
+		<display-name>lector/lector_course_edit.xhtml</display-name>
+		<from-view-id>/lector/lector_course_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>edit</from-outcome>
-			<to-view-id>/lector_courses.xhtml</to-view-id>
+			<to-view-id>/lector/lector_courses.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
-			<to-view-id>/lector_courses.xhtml</to-view-id>
+			<to-view-id>/lector/lector_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_courses.xhtml</display-name>
-		<from-view-id>/lector_courses.xhtml</from-view-id>
+		<display-name>lector/lector_courses.xhtml</display-name>
+		<from-view-id>/lector/lector_courses.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>edit</from-outcome>
-			<to-view-id>/lector_course_edit.xhtml</to-view-id>
+			<to-view-id>/lector/lector_course_edit.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_lesson_presence.xhtml</display-name>
-		<from-view-id>/lector_lesson_presence.xhtml</from-view-id>
+		<display-name>lector/lector_lesson_presence.xhtml</display-name>
+		<from-view-id>/lector/lector_lesson_presence.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>update</from-outcome>
-			<to-view-id>/lector_lesson_presence.xhtml</to-view-id>
+			<to-view-id>/lector/lector_lesson_presence.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>back</from-outcome>
-			<to-view-id>/lector_lessons.xhtml</to-view-id>
+			<to-view-id>/lector/lector_lessons.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_lessons.xhtml</display-name>
-		<from-view-id>/lector_lessons.xhtml</from-view-id>
+		<display-name>lector/lector_lessons.xhtml</display-name>
+		<from-view-id>/lector/lector_lessons.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>edit</from-outcome>
-			<to-view-id>/lector_lesson_edit.xhtml</to-view-id>
+			<to-view-id>/lector/lector_lesson_edit.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>presence</from-outcome>
-			<to-view-id>/lector_lesson_presence.xhtml</to-view-id>
+			<to-view-id>/lector/lector_lesson_presence.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_lesson_edit.xhtml</display-name>
-		<from-view-id>/lector_lesson_edit.xhtml</from-view-id>
+		<display-name>lector/lector_lesson_edit.xhtml</display-name>
+		<from-view-id>/lector/lector_lesson_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>update</from-outcome>
-			<to-view-id>/lector_lessons.xhtml</to-view-id>
+			<to-view-id>/lector/lector_lessons.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
-			<to-view-id>/lector_lessons.xhtml</to-view-id>
+			<to-view-id>/lector/lector_lessons.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_opened_courses.xhtml</display-name>
-		<from-view-id>/lector_opened_courses.xhtml</from-view-id>
+		<display-name>lector/lector_opened_courses.xhtml</display-name>
+		<from-view-id>/lector/lector_opened_courses.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>add_lesson</from-outcome>
-			<to-view-id>/lector_lesson_edit.xhtml</to-view-id>
+			<to-view-id>/lector/lector_lesson_edit.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_lesson_edit.xhtml</display-name>
-		<from-view-id>/lector_lesson_edit.xhtml</from-view-id>
+		<display-name>lector/lector_lesson_edit.xhtml</display-name>
+		<from-view-id>/lector/lector_lesson_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>create</from-outcome>
-			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_lesson_edit.xhtml</display-name>
-		<from-view-id>/lector_lesson_edit.xhtml</from-view-id>
+		<display-name>lector/lector_lesson_edit.xhtml</display-name>
+		<from-view-id>/lector/lector_lesson_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
-			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_opened_courses.xhtml</display-name>
-		<from-view-id>/lector_opened_courses.xhtml</from-view-id>
+		<display-name>lector/lector_opened_courses.xhtml</display-name>
+		<from-view-id>/lector/lector_opened_courses.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>change_capacity</from-outcome>
-			<to-view-id>/lector_course_change_capacity.xhtml</to-view-id>
+			<to-view-id>/lector/lector_course_change_capacity.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_opened_courses.xhtml</display-name>
-		<from-view-id>/lector_opened_courses.xhtml</from-view-id>
+		<display-name>lector/lector_opened_courses.xhtml</display-name>
+		<from-view-id>/lector/lector_opened_courses.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>change_place</from-outcome>
-			<to-view-id>/lector_course_change_place.xhtml</to-view-id>
+			<to-view-id>/lector/lector_course_change_place.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_course_change_place.xhtml</display-name>
-		<from-view-id>/lector_course_change_place.xhtml</from-view-id>
+		<display-name>lector/lector_course_change_place.xhtml</display-name>
+		<from-view-id>/lector/lector_course_change_place.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>update</from-outcome>
-			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_course_change_place.xhtml</display-name>
-		<from-view-id>/lector_course_change_place.xhtml</from-view-id>
+		<display-name>lector/lector_course_change_place.xhtml</display-name>
+		<from-view-id>/lector/lector_course_change_place.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
-			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_course_change_capacity.xhtml</display-name>
-		<from-view-id>/lector_course_change_capacity.xhtml</from-view-id>
+		<display-name>lector/lector_course_change_capacity.xhtml</display-name>
+		<from-view-id>/lector/lector_course_change_capacity.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>update</from-outcome>
-			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_course_change_capacity.xhtml</display-name>
-		<from-view-id>/lector_course_change_capacity.xhtml</from-view-id>
+		<display-name>lector/lector_course_change_capacity.xhtml</display-name>
+		<from-view-id>/lector/lector_course_change_capacity.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
-			<to-view-id>/lector_opened_courses.xhtml</to-view-id>
+			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
@@ -302,20 +302,20 @@
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_profile_edit.xhtml</display-name>
-		<from-view-id>/lector_profile_edit.xhtml</from-view-id>
+		<display-name>lector/lector_profile_edit.xhtml</display-name>
+		<from-view-id>/lector/lector_profile_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
-			<to-view-id>/lector_screen.xhtml</to-view-id>
+			<to-view-id>/lector/lector_screen.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>lector_profile_edit.xhtml</display-name>
-		<from-view-id>/lector_profile_edit.xhtml</from-view-id>
+		<display-name>lector/lector_profile_edit.xhtml</display-name>
+		<from-view-id>/lector/lector_profile_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>update</from-outcome>
-			<to-view-id>/lector_screen.xhtml</to-view-id>
+			<to-view-id>/lector/lector_screen.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
@@ -324,7 +324,7 @@
 		<from-view-id>/login.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>login_lector</from-outcome>
-			<to-view-id>/lector_screen.xhtml</to-view-id>
+			<to-view-id>/lector/lector_screen.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 	</navigation-rule>

@@ -42,9 +42,7 @@
   <!-- zoznam stranok, kde ma pristup iba lektor -->
   <filter-mapping>
      <filter-name>LectorAuthorizationFilter</filter-name>
-     <url-pattern>/faces/lector_lections.xhtml</url-pattern>
-     <url-pattern>/faces/lector_opened_courses.xhtml</url-pattern>
-     <url-pattern>/faces/lector_screen.xhtml</url-pattern>
+     <url-pattern>/faces/lector/*</url-pattern>
      <dispatcher>REQUEST</dispatcher>
      <dispatcher>FORWARD</dispatcher>
      <dispatcher>INCLUDE</dispatcher>
