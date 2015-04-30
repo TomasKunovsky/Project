@@ -42,14 +42,6 @@
 					<f:convertDateTime type="time" pattern="HH:mm" />
 				</h:outputText>
 			</h:column>
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Cena" />
-				</f:facet>
-				<h:outputText value="#{lesson.cost}">
-					<f:convertNumber currencyCode="CZK" type="currency" />
-				</h:outputText>
-			</h:column>
 		</h:dataTable>
 	</h:form>
 

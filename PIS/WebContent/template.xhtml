@@ -18,13 +18,13 @@
     </ui:insert>
     <h:panelGroup id="user_info" rendered="#{authenticationBean.authorized}">
 		<h:form>
-		    <h:commandLink id="logout" action="#{authenticationBean.actionLogout}" value="logout"/>|
+		    <h:commandLink id="logout" action="#{authenticationBean.actionLogout}" value="Odhlásenie"/>&nbsp;|&nbsp;
 			<span><h:outputText value="#{authenticationBean.login}"/></span>
 		</h:form>
     </h:panelGroup >
-    <h:panelGroup  id="login" rendered="#{!authenticationBean.authorized}">
+    <h:panelGroup  id="Prihlásenie" rendered="#{!authenticationBean.authorized}">
 		<h:form>
-			<a href="login.xhtml">Login</a>|<h:commandLink action="Registration" value="registrácia"/>
+			<a href="login.xhtml">Login</a>&nbsp;|&nbsp;<h:commandLink action="#{registrationBean.actionRegistration}" value="Registrácia"/>
 		</h:form>
     </h:panelGroup >
 </div>
