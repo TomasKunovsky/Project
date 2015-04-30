@@ -20,13 +20,23 @@
     </init-param> 
   </filter>
   
-  <!-- tento umozi pristup iba adminovi -->
+  <!-- Umozi pristup iba adminovi -->
   <filter>
      <filter-name>AdminAuthorizationFilter</filter-name>
      <filter-class>pis.back.AuthenticationFilter</filter-class>
      <init-param>
       <param-name>role</param-name>
       <param-value>admin</param-value>
+    </init-param> 
+  </filter>
+  
+  <!-- Umozi pristup iba klientovi -->
+  <filter>
+     <filter-name>ClientAuthorizationFilter</filter-name>
+     <filter-class>pis.back.AuthenticationFilter</filter-class>
+     <init-param>
+      <param-name>role</param-name>
+      <param-value>client</param-value>
     </init-param> 
   </filter>
   
@@ -43,6 +53,15 @@
   <filter-mapping>
      <filter-name>LectorAuthorizationFilter</filter-name>
      <url-pattern>/faces/lector/*</url-pattern>
+     <dispatcher>REQUEST</dispatcher>
+     <dispatcher>FORWARD</dispatcher>
+     <dispatcher>INCLUDE</dispatcher>
+  </filter-mapping>
+  
+  <!-- zoznam stranok, kde ma pristup iba klient -->
+  <filter-mapping>
+     <filter-name>ClientAuthorizationFilter</filter-name>
+     <url-pattern>/faces/client/*</url-pattern>
      <dispatcher>REQUEST</dispatcher>
      <dispatcher>FORWARD</dispatcher>
      <dispatcher>INCLUDE</dispatcher>
