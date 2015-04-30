@@ -14,20 +14,19 @@
 		
 <div id="header">
     <ui:insert name="header">
-    	<h1>Firma s kurzy</h1>
+    	<h1><a href="#{authenticationBean.homeScreenPage}.xhtml">Firma s kurzy</a></h1>
     </ui:insert>
-    <h:panelGroup  id="user_info" rendered="#{authenticationBean.authorized}">
+    <h:panelGroup id="user_info" rendered="#{authenticationBean.authorized}">
 		<h:form>
+		    <h:commandLink id="logout" action="#{authenticationBean.actionLogout}" value="logout"/>|
 			<span><h:outputText value="#{authenticationBean.login}"/></span>
-		    <h:commandLink id="logout" action="#{authenticationBean.actionLogout}" value="logout"/>
 		</h:form>
     </h:panelGroup >
     <h:panelGroup  id="login" rendered="#{!authenticationBean.authorized}">
 		<h:form>
-		    <a href="login.xhtml">Login</a>
+			<a href="login.xhtml">Login</a>|<h:commandLink action="Registration" value="registrácia"/>
 		</h:form>
     </h:panelGroup >
-    
 </div>
 
 

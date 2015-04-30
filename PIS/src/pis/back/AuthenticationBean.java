@@ -177,4 +177,29 @@ public class AuthenticationBean
 	public Admin getLoggedAdmin() {
 		return loggedAdmin;
 	}
+	
+	/**
+	 * Podla prihlasenej role vrati nazov domovskej obrazovky.
+	 * @return - nazov domovskej obrazovky
+	 */
+	public String getHomeScreenPage() {
+		String ret = "";
+		
+		switch (loggedRole) {
+		case ADMIN:
+			ret = "admin_screen";			
+			break;
+		case CLIENT:
+			ret = "client_screen";			
+			break;
+		case LECTOR:
+			ret = "lector_screen";			
+			break;
+		default:
+			ret = "index";
+			break;
+		}
+		
+		return ret;
+	}
 }
