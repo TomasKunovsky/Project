@@ -9,6 +9,12 @@
 <ui:composition template="template.xhtml">
 	<ui:define name="content">
 	    <h2>Vítejte</h2>
+	    <h:form>
+		    <ul>
+		    	<li><h:commandLink action="open_courses_list" value="Naše otvorené kurzy"/></li>
+		    	<li><h:commandLink action="contacts" value="Kontakty"/></li>
+		    </ul>
+	    </h:form>
 	</ui:define>
 </ui:composition>
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/template.xhtml">>
+	<ui:define name="content">
+		<h1>Detail kurzu</h1>
+	
+		<h:panelGrid columns="2">
+			Nazov:
+			<h:outputText value="#{openCoursesBean.openCourse.course.name}"/>
+			Popis:
+			<h:outputText value="#{openCoursesBean.openCourse.course.description}"/>
+			Cena:
+			<h:outputText value="#{openCoursesBean.openCourse.course.price}">
+				<f:convertNumber currencyCode="CZK" type="currency" />
+			</h:outputText>
+			Začiatok:
+			<h:outputText value="#{openCoursesBean.openCourse.startDate}">
+				<f:convertDateTime type="date" locale="cs"/>
+			</h:outputText>
+			Koniec:
+			<h:outputText value="#{openCoursesBean.openCourse.endDate}">
+				<f:convertDateTime type="date" locale="cs"/>
+			</h:outputText>
+		</h:panelGrid>
+	</ui:define>
+</ui:composition>
+</html>

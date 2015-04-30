@@ -50,6 +50,29 @@
 	</navigation-rule>
 	
 	<navigation-rule>
+		<display-name>index.xhtml</display-name>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>open_courses_list</from-outcome>
+			<to-view-id>/open_courses.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>contacts</from-outcome>
+			<to-view-id>/contacts.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>open_courses.xhtml</display-name>
+		<from-view-id>/open_courses.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>open_course</from-outcome>
+			<to-view-id>/open_course_detail.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>	
+	
+	
+	<navigation-rule>
 		<display-name>client/client_screen.xhtml</display-name>
 		<from-view-id>/client/client_screen.xhtml</from-view-id>
 		<navigation-case>
