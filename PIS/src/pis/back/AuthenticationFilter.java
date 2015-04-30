@@ -34,7 +34,7 @@ public final class AuthenticationFilter implements Filter
         }
         
         if (auth != null && auth.isAuthorized()) { // overi sa prihlasenie
-        	if (roles.length == 0 || auth.isOneOfRole(roles)) { // ak pozadovane overenie roli, tak sa overia)
+        	if (roles.length == 0 || auth.isOneOfRole(roles)) { // ak je pozadovane overenie roli, tak sa overia)
         		chain.doFilter(request, response);
         	} else {
                 response.setContentType("text/html");

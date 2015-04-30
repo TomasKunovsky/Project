@@ -21,7 +21,7 @@ import pis.service.LectorManager;
 @SessionScoped
 public class AuthenticationBean
 {
-    private static final String CLIENT_INIT_PARAM = "user";
+    private static final String CLIENT_INIT_PARAM = "client";
 	private static final String LECTOR_INIT_PARAM = "lector";
 	private static final String ADMIN_INIT_PARAM = "admin";
 	private static final int LECTOR = 0;
