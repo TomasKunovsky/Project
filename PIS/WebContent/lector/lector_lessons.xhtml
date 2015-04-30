@@ -52,7 +52,9 @@
 				</h:column>
 				
 				<h:column>
-					<h:commandLink action="#{lessonsLectorBean.actionEditLessonPresence(lesson)}">
+					<h:commandLink 
+							rendered="#{lessonsLectorBean.lessonHasEnded(lesson)}"
+							action="#{lessonsLectorBean.actionEditLessonPresence(lesson)}">
 						<h:outputText value="Uprav dochádzku"></h:outputText>
 					</h:commandLink>
 					&nbsp;

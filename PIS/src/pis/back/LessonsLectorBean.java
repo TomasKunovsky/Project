@@ -1,5 +1,7 @@
 package pis.back;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -44,6 +46,17 @@ public class LessonsLectorBean {
 		justUpdate = true;
 		
 		return "edit";
+	}
+	
+	public boolean lessonHasEnded(Lesson lesson) {
+		boolean ret = false;
+		Date now = new Date();
+		
+		if (lesson.getDate().getTime() < now.getTime()) {
+			ret = true;
+		}
+		
+		return ret;
 	}
 	
 	public String actionEditLessonPresence(Lesson lesson) {
