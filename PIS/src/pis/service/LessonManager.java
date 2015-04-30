@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import pis.data.Lector;
 import pis.data.Lesson;
+import pis.data.OpenCourse;
 
 @Stateless
 public class LessonManager {
@@ -31,4 +32,11 @@ public class LessonManager {
     			.setParameter("lector", lector)
     			.getResultList();
     }
+
+    @SuppressWarnings("unchecked")
+	public List<Lesson> findAll(OpenCourse openCourse) {
+    	return em.createQuery("SELECT lesson FROM Lesson lesson WHERE lesson.openCourse = :openCourse")
+    			.setParameter("openCourse", openCourse)
+    			.getResultList();
+	}
 }

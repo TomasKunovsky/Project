@@ -6,9 +6,13 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import pis.data.Client;
+import pis.data.Course;
 import pis.data.Lector;
 import pis.data.Lesson;
 import pis.data.OpenCourse;
+import pis.service.ClientManager;
+import pis.service.CourseManager;
 import pis.service.LessonManager;
 import pis.service.OpenCourseManager;
 
@@ -18,15 +22,31 @@ import pis.service.OpenCourseManager;
 @ManagedBean
 @SessionScoped
 public class CoursesClientBean {
-	@EJB
-	private OpenCourseManager openCourseMngr;
+	private Course course;
 	
 	@EJB
-	private LessonManager lessonMngr;
+	private CourseManager courseMngr;
 	
-	private OpenCourse openCourse;
-	private Lector lector;
-	private Lesson lesson;
+	@EJB
+	private ClientManager clientMngr;
 	
-	// TODO
+	public String actionReopen(Course course, Client client) {
+		this.setCourse(course);
+		course.getClients().add(client);	
+		courseMngr.save(course);
+		
+		return "reopen";
+	}
+	
+	public List<Course> getCourses() {
+		return courseMngr.findAll();
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
 }

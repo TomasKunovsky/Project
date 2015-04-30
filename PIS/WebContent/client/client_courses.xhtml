@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+	<h1>Kurzy</h1>
+		
+	<h:form>
+		<h:dataTable value="#{coursesClientBean.courses}" var="course">
+			<h:column>
+				<f:facet name="header">
+                    <h:outputText value="Nazov"/>
+                </f:facet>
+				<h:outputText value="#{course.name}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+                    <h:outputText value="Cena"/>
+                </f:facet>
+				<h:outputText value="#{course.price}">
+					<f:convertNumber currencyCode="CZK" type="currency" />
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<h:commandLink
+						rendered="#{!course.clients.contains(authenticationBean.loggedClient)}" 
+						action="#{coursesClientBean.actionReopen(course, authenticationBean.loggedClient)}">
+					<h:outputText value="Požiadať o otvorenie"></h:outputText>
+				</h:commandLink>
+				<h:outputText
+						rendered="#{course.clients.contains(authenticationBean.loggedClient)}" 
+						value="ŽIADOSŤ PRIJATÁ"/>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+
+	</ui:define>
+</ui:composition>
+</html>

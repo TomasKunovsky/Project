@@ -32,4 +32,8 @@ public class OpenCourseManager {
 		em.merge(openCourse);
 	}
 
+	public void refresh(OpenCourse openCourse) {
+		em.refresh(em.merge(openCourse));		
+	}
+
 }

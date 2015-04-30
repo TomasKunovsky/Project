@@ -10,6 +10,7 @@ import pis.data.Client;
 import pis.data.Lector;
 import pis.data.Lesson;
 import pis.data.OpenCourse;
+import pis.service.ClientManager;
 import pis.service.LessonManager;
 import pis.service.OpenCourseManager;
 
@@ -21,6 +22,9 @@ import pis.service.OpenCourseManager;
 public class OpenCoursesClientBean {
 	@EJB
 	private OpenCourseManager openCourseMngr;
+
+	@EJB
+	private ClientManager clientMngr;
 	
 	@EJB
 	private LessonManager lessonMngr;
@@ -40,8 +44,9 @@ public class OpenCoursesClientBean {
 	}
 	
 	public String actionRegister() {
-		openCourse.getClients().add(client);
-		openCourseMngr.save(openCourse);
+		client.getOpenCourses().add(openCourse);
+		clientMngr.save(client);
+		openCourseMngr.refresh(openCourse);
 
 		return "ok";
 	}

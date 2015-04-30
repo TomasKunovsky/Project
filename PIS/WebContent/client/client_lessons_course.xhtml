@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+	<h1>Lekcie v kurze #{myCoursesClientBean.openCourse.course.name}</h1>
+		
+	<h:form>
+		<h:dataTable value="#{myCoursesClientBean.courseLessons}" var="lesson">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Popis" />
+				</f:facet>
+				<h:outputText value="#{lesson.description}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Dátum" />
+				</f:facet>
+				<h:outputText value="#{lesson.date}">
+					<f:convertDateTime type="date" locale="cs" />
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Začiatok" />
+				</f:facet>
+				<h:outputText value="#{lesson.start}">
+					<f:convertDateTime type="time" pattern="HH:mm" />
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Koniec" />
+				</f:facet>
+				<h:outputText value="#{lesson.end}">
+					<f:convertDateTime type="time" pattern="HH:mm" />
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Cena" />
+				</f:facet>
+				<h:outputText value="#{lesson.cost}">
+					<f:convertNumber currencyCode="CZK" type="currency" />
+				</h:outputText>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+
+	</ui:define>
+</ui:composition>
+</html>
