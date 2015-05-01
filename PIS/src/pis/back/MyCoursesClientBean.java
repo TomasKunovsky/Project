@@ -42,9 +42,6 @@ public class MyCoursesClientBean {
 	public String actionPayCourse(OpenCourse course) {
 		this.setOpenCourse(course);
 		payment = new Payment();
-		payment.setClient(client);
-		payment.setDate(new Date());
-		payment.setOpenCourse(openCourse);
 		
 		return "pay";
 	}
@@ -52,6 +49,11 @@ public class MyCoursesClientBean {
 	public String actionSendPaymentInfo() {
 		paymentMngr.addNew(payment);
 		client.getPayments().add(payment);
+		payment.setClient(client);
+		payment.setDate(new Date());
+		payment.setOpenCourse(openCourse);
+		openCourse.getPayments().add(payment);
+		openCourseMngr.save(openCourse);
 		clientMngr.save(client);
 		
 		return "ok";
