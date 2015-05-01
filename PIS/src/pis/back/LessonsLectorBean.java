@@ -14,6 +14,7 @@ import pis.data.Client;
 import pis.data.Lector;
 import pis.data.Lesson;
 import pis.data.OpenCourse;
+import pis.service.ClientManager;
 import pis.service.LessonManager;
 import pis.service.OpenCourseManager;
 
@@ -25,6 +26,9 @@ import pis.service.OpenCourseManager;
 public class LessonsLectorBean {
 	@EJB
 	private LessonManager lessonMngr;
+
+	@EJB
+	private ClientManager clientMngr;
 	
 	private Lector lector;
 	private Lesson lesson;
@@ -74,11 +78,14 @@ public class LessonsLectorBean {
 	public String actionSetPresent(Client client, boolean present) {
 		if (present) {
 			lesson.getClients().add(client);
+			client.getLessons().add(lesson);
 		} else {
 			lesson.getClients().remove(client);
+			client.getLessons().remove(lesson);
 		}
 		
 		lessonMngr.save(lesson);
+		clientMngr.save(client);
 		
 		return "update";
 	}
@@ -106,7 +113,7 @@ public class LessonsLectorBean {
 			
 			if (!justUpdate) {
 				lector.getLessons().add(lesson);
-				openCourse.getLessons().add(lesson);
+				lesson.getOpenCourse().getLessons().add(lesson);
 			}
 
 			ret = justUpdate ? "update" : "create";			
