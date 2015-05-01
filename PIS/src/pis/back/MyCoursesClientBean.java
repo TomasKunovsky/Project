@@ -90,7 +90,6 @@ public class MyCoursesClientBean {
 	}
 
 	public OpenCourse getOpenCourse() {
-		openCourseMngr.refresh(openCourse);
 		return openCourse;
 	}
 

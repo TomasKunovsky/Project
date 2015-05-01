@@ -45,8 +45,9 @@ public class OpenCoursesClientBean {
 	
 	public String actionRegister() {
 		client.getOpenCourses().add(openCourse);
+		openCourse.getClients().add(client);
 		clientMngr.save(client);
-		openCourseMngr.refresh(openCourse);
+		openCourseMngr.save(openCourse);
 
 		return "ok";
 	}
