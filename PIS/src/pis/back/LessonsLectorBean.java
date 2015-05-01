@@ -103,6 +103,12 @@ public class LessonsLectorBean {
 			ret = null;
 		} else {
 			lessonMngr.save(lesson);
+			
+			if (!justUpdate) {
+				lector.getLessons().add(lesson);
+				openCourse.getLessons().add(lesson);
+			}
+
 			ret = justUpdate ? "update" : "create";			
 		}
 		
