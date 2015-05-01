@@ -115,6 +115,47 @@
 					<h:commandButton action="#{lectorBean.actionOpenCourseDel(openCourse)}" value="Zrušit přiřazení"></h:commandButton>
 				</h:column>
 			</h:dataTable>
+			
+			<h2>Lekce</h2>
+			<h:dataTable value="#{lectorBean.lector.lessons}"
+			             var="lesson">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Popis"/>
+	                </f:facet>
+					<h:outputText value="#{lesson.description}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Náklady"/>
+	                </f:facet>
+					<h:outputText value="#{lesson.cost}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Datum"/>
+	                </f:facet>
+					<h:outputText value="#{lesson.date}">
+						<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Začátek"/>
+	                </f:facet>
+					<h:outputText value="#{lesson.start}">
+						<f:convertDateTime type="date" pattern="hh:mm"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Konec"/>
+	                </f:facet>
+					<h:outputText value="#{lesson.end}">
+						<f:convertDateTime type="date" pattern="hh:mm"/>
+					</h:outputText>
+				</h:column>
+			</h:dataTable>
 
 			
 			<p>
