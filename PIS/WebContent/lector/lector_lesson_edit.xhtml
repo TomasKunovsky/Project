@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+ 	xmlns:rich="http://richfaces.org/rich">
 
 <ui:composition template="../template.xhtml">
 	<ui:define name="content">
@@ -24,9 +26,17 @@
 				</h:inputTextarea>
 				
 				<h:outputLabel rendered="true" value="Dátum"></h:outputLabel>
-				<h:inputText value="#{lessonsLectorBean.lesson.date}" required="true" requiredMessage="Nie je zadaný dátum.">
-					<f:convertDateTime type="date" locale="cs"/>
-				</h:inputText>
+				<a4j:outputPanel id="box1">
+	                <rich:calendar id="cal01" converterMessage="Neplatná hodnota dátumu."
+		               value="#{lessonsLectorBean.lesson.date}"
+		               popup="true"
+		               required="true"
+		               requiredMessage="Nie je zadaný dátum." 
+		               datePattern="dd/MM/yyyy" enableManualInput="true"
+		               cellWidth="24px"
+		               cellHeight="22px" style="width:180px">
+					</rich:calendar>  
+                </a4j:outputPanel>	
 				
 				<h:outputLabel rendered="true" value="Začiatok"></h:outputLabel>
 				<h:inputText value="#{lessonsLectorBean.lesson.start}" 
