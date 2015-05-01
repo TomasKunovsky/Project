@@ -15,6 +15,7 @@ import pis.data.Lector;
 import pis.data.Lesson;
 import pis.data.OpenCourse;
 import pis.service.ClientManager;
+import pis.service.LectorManager;
 import pis.service.LessonManager;
 import pis.service.OpenCourseManager;
 
@@ -29,6 +30,9 @@ public class LessonsLectorBean {
 
 	@EJB
 	private ClientManager clientMngr;
+	
+	@EJB
+	private OpenCourseManager openCourseMngr;
 	
 	private Lector lector;
 	private Lesson lesson;
@@ -91,8 +95,10 @@ public class LessonsLectorBean {
 	}
 	
 	public String actionAddLesson(OpenCourse course, Lector lector) {
-		openCourse = course;
+		this.openCourse = course;
+		this.lector = lector;
 		justUpdate = false;
+		
 		lesson = new Lesson();
 		lesson.setLector(lector);
 		lesson.setOpenCourse(openCourse);
@@ -109,12 +115,13 @@ public class LessonsLectorBean {
 		    FacesContext.getCurrentInstance().addMessage(null, errorMessage);
 			ret = null;
 		} else {
-			lessonMngr.save(lesson);
 			
 			if (!justUpdate) {
 				lector.getLessons().add(lesson);
 				lesson.getOpenCourse().getLessons().add(lesson);
 			}
+
+			openCourseMngr.save(lesson.getOpenCourse());
 
 			ret = justUpdate ? "update" : "create";			
 		}
