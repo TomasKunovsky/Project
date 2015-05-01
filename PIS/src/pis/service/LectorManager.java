@@ -33,5 +33,5 @@ public class LectorManager {
     {
     	return em.find(Lector.class, login);
     }
-
+    
 }

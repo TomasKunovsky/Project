@@ -38,19 +38,39 @@ public class OpenCourse {
 	private Date endDate;
 	@ManyToOne(fetch = EAGER) 
 	private Course course;
-	@OneToMany(fetch = EAGER, cascade = ALL, mappedBy = "openCourse", orphanRemoval = true)
+	@OneToMany(fetch = EAGER, cascade = ALL, mappedBy = "openCourse", orphanRemoval = false)
 	private Collection<Lesson> lessons;
 	@ManyToOne(fetch = EAGER)
 	private Lector lector;
 	@ManyToMany(mappedBy="openCourses", fetch = EAGER, cascade = ALL)
 	private Collection<Client> clients;
-	@OneToMany(mappedBy = "openCourse", orphanRemoval = true, fetch = EAGER, cascade = ALL)
+	@OneToMany(mappedBy = "openCourse", orphanRemoval = false, fetch = EAGER, cascade = ALL)
 	private Collection<Payment> payments;
 	
 	public OpenCourse() {
 		this.lessons = new Vector<Lesson>();
 		this.clients = new Vector<Client>();
 		this.payments = new Vector<Payment>();
+	}
+	
+	public int getCost() {
+		int sum = 0;
+		for (Lesson lesson:getLessons()) {
+			sum += lesson.getCost();
+		}
+		return sum;
+	}
+	
+	public int getProfit() {
+		int sum = 0;
+		for (Payment payment:getPayments()) {
+			sum += payment.getAmount();
+		}
+		return sum;
+	}
+	
+	public int getClientsSize() {
+		return getClients().size();
 	}
 	
 	public Course getCourse() {

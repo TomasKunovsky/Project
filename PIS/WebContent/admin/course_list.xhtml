@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+		<h2>Kurzy</h2>
+		<h:form>
+			<h:dataTable value="#{courseBean.courses}"
+			             var="course">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Název"/>
+	                </f:facet>
+					<h:outputText value="#{course.name}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Popis"/>
+	                </f:facet>
+					<h:outputText value="#{course.description}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Cena"/>
+	                </f:facet>
+					<h:outputText value="#{course.price}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Login zodpovědného lektora"/>
+	                </f:facet>
+					<h:outputText value="#{course.lector.login}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Jméno zodpovědného lektora"/>
+	                </f:facet>
+					<h:outputText value="#{course.lector.name}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Otevřených kurzů"/>
+	                </f:facet>
+					<h:outputText value="#{course.openCoursesCount}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Počet žádostí"/>
+	                </f:facet>
+					<h:outputText value="#{course.clientsSize}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandButton value="Spravovat" action="#{courseBean.actionEdit(course)}"></h:commandButton>
+					&nbsp;
+					<h:commandButton action="#{courseBean.actionLectorSelect(course)}" value="Změnit zodpovědného lektora">
+					</h:commandButton>
+					&nbsp;
+					<h:commandButton value="Odstranit" action="#{courseBean.actionDelete(course)}"></h:commandButton>
+				</h:column>
+			</h:dataTable>
+			
+			<h:commandButton action="#{courseBean.actionNew}" value="Vytvořit kurz"></h:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

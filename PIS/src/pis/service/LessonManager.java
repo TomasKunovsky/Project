@@ -15,7 +15,7 @@ public class LessonManager {
 	@PersistenceContext
     private EntityManager em;
 	
-	public void save(Lesson l)
+    public void save(Lesson l)
     {
     	em.merge(l);
     }
@@ -39,4 +39,5 @@ public class LessonManager {
     			.setParameter("openCourse", openCourse)
     			.getResultList();
 	}
+
 }

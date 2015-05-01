@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+
+		<h2>Platby klienta</h2>
+		
+		<h:form>
+			<h:dataTable value="#{paymentBean.payments}" var="payment">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Částka"/>
+	                </f:facet>
+					<h:outputText value="#{payment.amount}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Datum"/>
+	                </f:facet>
+					<h:outputText value="#{payment.date}">
+						<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Název kurzu"/>
+	                </f:facet>
+					<h:outputText value="#{payment.openCourse.course.name}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Místo otevřeného kurzu"/>
+	                </f:facet>
+					<h:outputText value="#{payment.openCourse.place}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Číslo účtu"/>
+	                </f:facet>
+					<h:outputText value="#{payment.accountNumber}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="E-mail klienta"/>
+	                </f:facet>
+					<h:outputText value="#{payment.client.email}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Jméno klienta"/>
+	                </f:facet>
+					<h:outputText value="#{payment.client.name}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandButton value="Upravit" action="#{paymentBean.actionEdit(payment)}" />
+					&nbsp;
+					<h:commandButton value="Odstranit" action="#{paymentBean.actionDelete(payment)}" />
+				</h:column>
+			</h:dataTable>			
+		</h:form>
+		
+	</ui:define>
+</ui:composition>
+</html>

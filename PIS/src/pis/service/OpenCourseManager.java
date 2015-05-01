@@ -6,34 +6,47 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import pis.back.LectorBean;
+import pis.data.Course;
 import pis.data.Lector;
 import pis.data.OpenCourse;
 
 @Stateless
 public class OpenCourseManager {
-    @PersistenceContext
+	@PersistenceContext
     private EntityManager em;
+	
+	public void save(OpenCourse oc)
+    {
+    	em.merge(oc);
+    }
+	
+    public void remove(OpenCourse oc)
+    {
+    	em.remove(em.merge(oc));
+    }
+    
+    @SuppressWarnings("unchecked")
+    public List<OpenCourse> findAll()
+    {
+    	return em.createQuery("SELECT c FROM OpenCourse c").getResultList();
+    }
     
     @SuppressWarnings("unchecked")
     public List<OpenCourse> getOpenCourses(Lector lector) {
-    	
     	return em.createQuery("SELECT c FROM OpenCourse c WHERE c.lector = :lec")
     			.setParameter("lec", lector)
     			.getResultList();
     }
-    
+
     @SuppressWarnings("unchecked")
     public List<OpenCourse> getOpenCourses() {
-    	return em.createQuery("SELECT c FROM OpenCourse c")
-    			.getResultList();
+    	return findAll();
     }
-
-	public void save(OpenCourse openCourse) {
-		em.merge(openCourse);
-	}
 
 	public void refresh(OpenCourse openCourse) {
 		em.refresh(em.merge(openCourse));		
 	}
+    
 
 }

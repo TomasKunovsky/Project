@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<h2>Otevřené kurzy</h2>
+			<h:dataTable value="#{openCourseBean.openCourses}"
+			             var="openCourse">
+			    <h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Název"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.course.name}"></h:outputText>
+				</h:column>         
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Místo"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.place}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Kapacita"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.capacity}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Datum zahájení"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.startDate}">
+						<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Datum ukončení"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.endDate}">
+						<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Přihlášených klientů"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.clientsSize}"></h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Náklady"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.cost}"></h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Zisk"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.profit}"></h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Vedoucí kurzu"/>
+	                </f:facet>
+					<h:outputText value="#{openCourse.lector.name}"></h:outputText>
+				</h:column>
+				
+				<h:column>
+					<h:commandButton action="#{courseBean.actionOpenCourseDel(openCourse)}" value="Smazat">
+					</h:commandButton>
+					&nbsp;
+					<h:commandButton value="Spravovat" action="#{openCourseBean.actionEdit(openCourse)}"></h:commandButton>
+					&nbsp;
+					<h:commandButton action="#{openCourseBean.actionLectorSelect(openCourse)}" value="Změnit vedoucího lektora">
+					</h:commandButton>
+				</h:column>
+			</h:dataTable>
+			
+			<p>
+			<h:commandButton action="#{openCourseBean.actionNew}" value="Přidat otevřený kurz">
+			</h:commandButton>
+
+			</p>
+			
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

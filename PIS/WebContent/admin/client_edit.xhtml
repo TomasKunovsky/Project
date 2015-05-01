@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+	
+		<h:form>
+			<h:messages layout="table"></h:messages>
+			<h:panelGrid columns="2">
+				<h:outputLabel rendered="true" value="Login"></h:outputLabel>
+				<h:inputText value="#{clientBean.client.login}" required="true"
+					requiredMessage="Není zadán login.">
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Telefon"></h:outputLabel>
+				<h:inputText value="#{clientBean.client.telephoneNumber}" required="true"
+					validatorMessage="Neplatný telefon." requiredMessage="Není zadán telefon.">
+					<f:validateLength minimum="9" maximum="13"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Křesní jméno"></h:outputLabel>
+				<h:inputText value="#{clientBean.client.firstname}" required="false">
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Příjmení"></h:outputLabel>
+				<h:inputText value="#{clientBean.client.surname}" required="false">
+				</h:inputText>
+				<h:outputLabel rendered="true" value="E-mail"></h:outputLabel>
+				<h:inputText value="#{clientBean.client.email}" required="true"
+					validatorMessage="Neplatný e-mail." requiredMessage="Není zadán e-mail.">
+					<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Heslo"></h:outputLabel>
+				<h:inputText value="#{clientBean.client.password}" required="true"
+					requiredMessage="Není zadáno heslo.">
+				</h:inputText>
+			</h:panelGrid>
+			
+			<h2>Docházka na lekce</h2>
+			<h:dataTable value="#{clientBean.client.lessons}"
+			             var="lesson">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Název kurzu"/>
+	                </f:facet>
+					<h:outputText value="#{lesson.openCourse.course.name}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Popis lekce"/>
+	                </f:facet>
+					<h:outputText value="#{lesson.description}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Datum"/>
+	                </f:facet>
+					<h:outputText value="#{lesson.date}">
+						<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Začátek"/>
+	                </f:facet>
+					<h:outputText value="#{lesson.start}">
+						<f:convertDateTime pattern="HH:mm" />
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Konec"/>
+	                </f:facet>
+					<h:outputText value="#{lesson.end}">
+						<f:convertDateTime pattern="HH:mm" />
+					</h:outputText>
+				</h:column>
+			</h:dataTable>
+			
+			<p>
+			<h:commandButton action="#{clientBean.actionUpdate}" value="Aktualizuj">
+			</h:commandButton>
+			&nbsp;
+			<h:commandButton action="cancel" value="Zrušit"></h:commandButton>
+			</p>
+			
+		</h:form>
+	
+	</ui:define>
+</ui:composition>
+</html>

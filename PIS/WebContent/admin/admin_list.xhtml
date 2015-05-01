@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+
+		<h2>Administrátoři</h2>
+		
+		<h:form>
+			<h:dataTable value="#{adminBean.admins}" var="admin">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Login"/>
+	                </f:facet>
+					<h:outputText value="#{admin.login}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Telefon"/>
+	                </f:facet>
+					<h:outputText value="#{admin.telephoneNumber}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Křesní jméno"/>
+	                </f:facet>
+					<h:outputText value="#{admin.firstname}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Příjmení"/>
+	                </f:facet>
+					<h:outputText value="#{admin.surname}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="E-mail"/>
+	                </f:facet>
+					<h:outputText value="#{admin.email}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandButton value="Spravovat" action="#{adminBean.actionEdit(admin)}" />
+					&nbsp;
+					<h:commandButton value="Odstranit" action="#{adminBean.actionDelete(admin)}" />
+				</h:column>
+			</h:dataTable>			
+			<h:commandButton value="Vytvořit admina" action="#{adminBean.actionNew}" />
+		</h:form>
+		
+	</ui:define>
+</ui:composition>
+</html>

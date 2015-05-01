@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+
+		<h2>Přiřazení zodpovědného lektora</h2>
+		
+		<h:form>
+			<h:dataTable value="#{lectorBean.lectors}" var="lector">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Login"/>
+	                </f:facet>
+					<h:outputText value="#{lector.login}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Telefon"/>
+	                </f:facet>
+					<h:outputText value="#{lector.telephoneNumber}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Křesní jméno"/>
+	                </f:facet>
+					<h:outputText value="#{lector.firstname}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Příjmení"/>
+	                </f:facet>
+					<h:outputText value="#{lector.surname}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="E-mail"/>
+	                </f:facet>
+					<h:outputText value="#{lector.email}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Kvalifikace"/>
+	                </f:facet>
+					<h:outputText value="#{lector.qualification}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandButton action="#{courseBean.actionLectorSelected(lector)}" value="Přiřadit">
+					</h:commandButton>	
+				</h:column>
+			</h:dataTable>
+			<h:commandButton action="#{courseBean.actionLectorSelected}" value="Nastavit bez lektora">
+			</h:commandButton>
+				
+		</h:form>
+		
+	</ui:define>
+</ui:composition>
+</html>

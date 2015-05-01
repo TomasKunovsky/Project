@@ -26,7 +26,7 @@ public class Course {
 	private int price;
 	private String description;
 	private String name;
-	@OneToMany(mappedBy = "course", orphanRemoval = true, fetch = EAGER, cascade = ALL)
+	@OneToMany(mappedBy = "course", orphanRemoval = false, fetch = EAGER, cascade = ALL)
 	private Collection<OpenCourse> openCourses;
 	@ManyToOne(fetch = EAGER)
 	private Lector lector;
@@ -38,11 +38,18 @@ public class Course {
 		clients = new Vector<Client>(); 
 	}
 	
+	public int getClientsSize() {
+		return getClients().size();
+	}
+	
 	public Collection<OpenCourse> getOpenCourses() {
 		return openCourses;
 	}
 	public void setOpenCourses(Collection<OpenCourse> openCourses) {
 		this.openCourses = openCourses;
+	}
+	public int getOpenCoursesCount() {
+		return getOpenCourses().size();
 	}
 	public long getId() {
 		return id;

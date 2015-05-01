@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+ 	xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<h:messages layout="table"></h:messages>
+			<h:panelGrid columns="2">
+				<h:outputLabel rendered="true" value="Místo"></h:outputLabel>
+				<h:inputText value="#{openCourseBean.openCourse.place}" required="false">
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Kapacita"></h:outputLabel>
+				<h:inputText value="#{openCourseBean.openCourse.capacity}" required="true" 
+					validatorMessage="Neplatná hodnota kapacity." requiredMessage="Není zadána kapacita.">
+					 <f:validateLongRange minimum="0" />
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Datum zahájení"></h:outputLabel>
+				<a4j:outputPanel id="box1">
+	                <rich:calendar id="cal01" converterMessage="Neplatná hodnota data zahájení."
+		               value="#{openCourseBean.openCourse.startDate}"
+		               popup="true"
+		               datePattern="dd/MM/yyyy" enableManualInput="true"
+		               cellWidth="24px"
+		               cellHeight="22px" style="width:180px">
+					</rich:calendar>  
+                </a4j:outputPanel>				
+				<h:outputLabel rendered="true" value="Datum ukončení"></h:outputLabel>
+				<a4j:outputPanel id="box2">
+	                <rich:calendar id="cal02" converterMessage="Neplatná hodnota data ukončení."
+		               value="#{openCourseBean.openCourse.endDate}"
+		               popup="true"
+		               datePattern="dd/MM/yyyy" enableManualInput="true"
+		               cellWidth="24px"
+		               cellHeight="22px" style="width:180px">
+					</rich:calendar>  
+                </a4j:outputPanel>		
+			</h:panelGrid>
+			<p>
+			<h:commandButton action="#{openCourseBean.actionInsertNew}" value="Vytvořit">
+			</h:commandButton>
+			</p>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

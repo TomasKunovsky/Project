@@ -1,24 +1,37 @@
 package pis.service;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import pis.data.Admin;
-import pis.data.Client;
+import pis.data.OpenCourse;
 import pis.data.Payment;
 
 @Stateless
 public class PaymentManager {
-    @PersistenceContext
+	@PersistenceContext
     private EntityManager em;
-    
-    public Payment save(Payment payment)
+	
+    public void save(Payment p)
     {
-    	return em.merge(payment);
+    	em.merge(p);
     }
-
-	public void addNew(Payment payment) {
+	
+    public void remove(Payment p)
+    {
+    	em.remove(em.merge(p));
+    }
+    
+    @SuppressWarnings("unchecked")
+    public List<Payment> findAll()
+    {
+    	return em.createQuery("SELECT p FROM Payment p ORDER BY p.date DESC").getResultList();
+    }
+    
+    public void addNew(Payment payment) {
 		em.persist(payment);		
 	}
+
 }

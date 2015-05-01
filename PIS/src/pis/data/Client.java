@@ -20,21 +20,21 @@ import java.util.Vector;
 @Entity
 public class Client extends User  {
 	
-	@ManyToMany(fetch = EAGER, cascade = ALL)
+	@ManyToMany(fetch = EAGER)
 	@JoinTable(
 		      name="client_open_course",
 		      joinColumns={@JoinColumn(name="client_login", referencedColumnName="login")},
 		      inverseJoinColumns={@JoinColumn(name="open_course_id", referencedColumnName="id")})
 	private Collection<OpenCourse> openCourses;
 	
-	@ManyToMany(fetch = EAGER, cascade = ALL)
+	@ManyToMany(fetch = EAGER)
 	@JoinTable(
 		      name="client_lesson",
 		      joinColumns={@JoinColumn(name="client_login", referencedColumnName="login")},
 		      inverseJoinColumns={@JoinColumn(name="lesson_id", referencedColumnName="id")})
 	private Collection<Lesson> lessons;
 	
-	@ManyToMany(fetch = EAGER, cascade = ALL)
+	@ManyToMany(fetch = EAGER)
 	@JoinTable(
 		      name="client_course",
 		      joinColumns={@JoinColumn(name="client_login", referencedColumnName="login")},

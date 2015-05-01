@@ -4,50 +4,469 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
-
+		
 	<navigation-rule>
-		<display-name>admin/admin_lector_list.xhtml</display-name>
-		<from-view-id>/admin/admin_lector_list.xhtml</from-view-id>
+		<display-name>admin/lector_list.xhtml</display-name>
+		<from-view-id>/admin/lector_list.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>new</from-outcome>
-			<to-view-id>/admin/admin_lector_new.xhtml</to-view-id>
-			<redirect />
+			<to-view-id>/admin/lector_new.xhtml</to-view-id>
+			<redirect></redirect>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>admin/admin_lector_new.xhtml</display-name>
-		<from-view-id>/admin/admin_lector_new.xhtml</from-view-id>
+		<display-name>admin/lector_new.xhtml</display-name>
+		<from-view-id>/admin/lector_new.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>insert</from-outcome>
-			<to-view-id>/admin/admin_lector_list.xhtml</to-view-id>
+			<to-view-id>/admin/lector_list.xhtml</to-view-id>
+			<redirect></redirect>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<display-name>admin/admin_lector_list.xhtml</display-name>
-		<from-view-id>/admin/admin_lector_list.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>delete</from-outcome>
-			<to-view-id>/admin/admin_lector_list.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>admin/admin_lector_list.xhtml</display-name>
-		<from-view-id>/admin/admin_lector_list.xhtml</from-view-id>
+		<display-name>admin/lector_list.xhtml</display-name>
+		<from-view-id>/admin/lector_list.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>edit</from-outcome>
-			<to-view-id>/admin/admin_lector_edit.xhtml</to-view-id>
+			<to-view-id>/admin/lector_edit.xhtml</to-view-id>
+			<redirect></redirect>
 		</navigation-case>
 	</navigation-rule>
+	
 	<navigation-rule>
-		<display-name>admin/admin_lector_edit.xhtml</display-name>
-		<from-view-id>/admin/admin_lector_edit.xhtml</from-view-id>
+		<display-name>admin/lector_list.xhtml</display-name>
+		<from-view-id>/admin/lector_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>delete</from-outcome>
+			<to-view-id>/admin/lector_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/lector_edit.xhtml</display-name>
+		<from-view-id>/admin/lector_edit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>update</from-outcome>
-			<to-view-id>/admin/admin_lector_list.xhtml</to-view-id>
+			<to-view-id>/admin/lector_list.xhtml</to-view-id>
+			<redirect></redirect>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/lector_edit.xhtml</display-name>
+		<from-view-id>/admin/lector_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/admin/lector_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<display-name>admin/course_list.xhtml</display-name>
+		<from-view-id>/admin/course_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>new</from-outcome>
+			<to-view-id>/admin/course_new.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/course_list.xhtml</display-name>
+		<from-view-id>/admin/course_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/admin/course_edit.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/course_new.xhtml</display-name>
+		<from-view-id>/admin/course_new.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>insert</from-outcome>
+			<to-view-id>/admin/course_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/course_edit.xhtml</display-name>
+		<from-view-id>/admin/course_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>update</from-outcome>
+			<to-view-id>/admin/course_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/course_edit.xhtml</display-name>
+		<from-view-id>/admin/course_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/admin/course_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/course_list.xhtml</display-name>
+		<from-view-id>/admin/course_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>lector_select</from-outcome>
+			<to-view-id>/admin/course_lector_select.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/course_lector_select.xhtml</display-name>
+		<from-view-id>/admin/course_lector_select.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>list</from-outcome>
+			<to-view-id>/admin/course_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/open_course_list.xhtml</display-name>
+		<from-view-id>/admin/open_course_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>course_select</from-outcome>
+			<to-view-id>/admin/open_course_course_select.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/open_course_list.xhtml</display-name>
+		<from-view-id>/admin/open_course_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>delete</from-outcome>
+			<to-view-id>/admin/open_course_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/open_course_list.xhtml</display-name>
+		<from-view-id>/admin/open_course_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/admin/open_course_edit.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/open_course_edit.xhtml</display-name>
+		<from-view-id>/admin/open_course_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>update</from-outcome>
+			<to-view-id>/admin/open_course_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/open_course_edit.xhtml</display-name>
+		<from-view-id>/admin/open_course_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/admin/open_course_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/open_course_list.xhtml</display-name>
+		<from-view-id>/admin/open_course_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>lector_select</from-outcome>
+			<to-view-id>/admin/open_course_lector_select.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/open_course_lector_select.xhtml</display-name>
+		<from-view-id>/admin/open_course_lector_select.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>list</from-outcome>
+			<to-view-id>/admin/open_course_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/open_course_course_select.xhtml</display-name>
+		<from-view-id>/admin/open_course_course_select.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/admin/open_course_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/open_course_course_select.xhtml</display-name>
+		<from-view-id>/admin/open_course_course_select.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>new</from-outcome>
+			<to-view-id>/admin/open_course_new.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/open_course_new.xhtml</display-name>
+		<from-view-id>/admin/open_course_new.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>insert</from-outcome>
+			<to-view-id>/admin/open_course_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<display-name>admin/client_list.xhtml</display-name>
+		<from-view-id>/admin/client_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>new</from-outcome>
+			<to-view-id>/admin/client_new.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/client_new.xhtml</display-name>
+		<from-view-id>/admin/client_new.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>insert</from-outcome>
+			<to-view-id>/admin/client_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/client_list.xhtml</display-name>
+		<from-view-id>/admin/client_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/admin/client_edit.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/client_list.xhtml</display-name>
+		<from-view-id>/admin/client_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>delete</from-outcome>
+			<to-view-id>/admin/client_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/client_edit.xhtml</display-name>
+		<from-view-id>/admin/client_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>update</from-outcome>
+			<to-view-id>/admin/client_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/client_edit.xhtml</display-name>
+		<from-view-id>/admin/client_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/admin/client_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<display-name>admin/payment_list.xhtml</display-name>
+		<from-view-id>/admin/payment_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/admin/payment_edit.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/payment_list.xhtml</display-name>
+		<from-view-id>/admin/payment_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>delete</from-outcome>
+			<to-view-id>/admin/payment_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/payment_edit.xhtml</display-name>
+		<from-view-id>/admin/payment_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>update</from-outcome>
+			<to-view-id>/admin/payment_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/payment_edit.xhtml</display-name>
+		<from-view-id>/admin/payment_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/admin/payment_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<display-name>admin/admin_list.xhtml</display-name>
+		<from-view-id>/admin/admin_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>new</from-outcome>
+			<to-view-id>/admin/admin_new.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/admin_new.xhtml</display-name>
+		<from-view-id>/admin/admin_new.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>insert</from-outcome>
+			<to-view-id>/admin/admin_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/admin_list.xhtml</display-name>
+		<from-view-id>/admin/admin_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/admin/admin_edit.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/admin_list.xhtml</display-name>
+		<from-view-id>/admin/admin_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>delete</from-outcome>
+			<to-view-id>/admin/admin_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/admin_edit.xhtml</display-name>
+		<from-view-id>/admin/admin_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>update</from-outcome>
+			<to-view-id>/admin/admin_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/admin_edit.xhtml</display-name>
+		<from-view-id>/admin/admin_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/admin/admin_list.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<display-name>login.xhtml</display-name>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>login_lector</from-outcome>
+			<to-view-id>/lector_screen.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>login.xhtml</display-name>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>login_admin</from-outcome>
+			<to-view-id>/admin/admin_screen.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>login.xhtml</display-name>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>login_client</from-outcome>
+			<to-view-id>/client/client_screen.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>admin/*</display-name>
+		<from-view-id>/admin/*</from-view-id>
+		<navigation-case>
+			<from-outcome>logout</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/*</from-view-id>
+		<navigation-case>
+			<from-outcome>logout</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/*</from-view-id>
+		<navigation-case>
+			<from-outcome>registration</from-outcome>
+			<to-view-id>/registration.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>registration.xhtml</display-name>
+		<from-view-id>/registration.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>ok</from-outcome>
+			<to-view-id>/registration_complete.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
 	
 	<navigation-rule>
 		<display-name>index.xhtml</display-name>
@@ -70,8 +489,7 @@
 			<to-view-id>/open_course_detail.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>	
-	
-	
+
 	<navigation-rule>
 		<display-name>client/client_screen.xhtml</display-name>
 		<from-view-id>/client/client_screen.xhtml</from-view-id>
@@ -88,7 +506,7 @@
 			<to-view-id>/client/client_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>client/client_my_courses.xhtml</display-name>
 		<from-view-id>/client/client_my_courses.xhtml</from-view-id>
@@ -96,12 +514,13 @@
 			<from-outcome>pay</from-outcome>
 			<to-view-id>/client/client_pay_course.xhtml</to-view-id>
 		</navigation-case>
+
 		<navigation-case>
 			<from-outcome>lessons</from-outcome>
 			<to-view-id>/client/client_lessons_course.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>client/client_opened_courses.xhtml</display-name>
 		<from-view-id>/client/client_opened_courses.xhtml</from-view-id>
@@ -110,7 +529,7 @@
 			<to-view-id>/client/client_register_on_course.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>client/client_register_on_course.xhtml</display-name>
 		<from-view-id>/client/client_register_on_course.xhtml</from-view-id>
@@ -118,6 +537,7 @@
 			<from-outcome>ok</from-outcome>
 			<to-view-id>/client/client_registered.xhtml</to-view-id>
 		</navigation-case>
+
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
 			<to-view-id>/client/client_opened_courses.xhtml</to-view-id>
@@ -131,12 +551,13 @@
 			<from-outcome>ok</from-outcome>
 			<to-view-id>/client/client_my_courses.xhtml</to-view-id>
 		</navigation-case>
+
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
 			<to-view-id>/client/client_my_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-		
+
 	<navigation-rule>
 		<display-name>client/client_registered.xhtml</display-name>
 		<from-view-id>/client/client_registered.xhtml</from-view-id>
@@ -145,7 +566,7 @@
 			<to-view-id>/client/client_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>client/client_courses.xhtml</display-name>
 		<from-view-id>/client/client_courses.xhtml</from-view-id>
@@ -163,7 +584,7 @@
 			<to-view-id>/client/client_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-		
+
 	<navigation-rule>
 		<display-name>lector/lector_screen.xhtml</display-name>
 		<from-view-id>/lector/lector_screen.xhtml</from-view-id>
@@ -192,12 +613,13 @@
 			<from-outcome>edit</from-outcome>
 			<to-view-id>/lector/lector_courses.xhtml</to-view-id>
 		</navigation-case>
+
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
 			<to-view-id>/lector/lector_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_courses.xhtml</display-name>
 		<from-view-id>/lector/lector_courses.xhtml</from-view-id>
@@ -206,7 +628,7 @@
 			<to-view-id>/lector/lector_course_edit.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_lesson_presence.xhtml</display-name>
 		<from-view-id>/lector/lector_lesson_presence.xhtml</from-view-id>
@@ -214,12 +636,13 @@
 			<from-outcome>update</from-outcome>
 			<to-view-id>/lector/lector_lesson_presence.xhtml</to-view-id>
 		</navigation-case>
+
 		<navigation-case>
 			<from-outcome>back</from-outcome>
 			<to-view-id>/lector/lector_lessons.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_lessons.xhtml</display-name>
 		<from-view-id>/lector/lector_lessons.xhtml</from-view-id>
@@ -227,12 +650,13 @@
 			<from-outcome>edit</from-outcome>
 			<to-view-id>/lector/lector_lesson_edit.xhtml</to-view-id>
 		</navigation-case>
+
 		<navigation-case>
 			<from-outcome>presence</from-outcome>
 			<to-view-id>/lector/lector_lesson_presence.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_lesson_edit.xhtml</display-name>
 		<from-view-id>/lector/lector_lesson_edit.xhtml</from-view-id>
@@ -240,12 +664,13 @@
 			<from-outcome>update</from-outcome>
 			<to-view-id>/lector/lector_lessons.xhtml</to-view-id>
 		</navigation-case>
+
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
 			<to-view-id>/lector/lector_lessons.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_opened_courses.xhtml</display-name>
 		<from-view-id>/lector/lector_opened_courses.xhtml</from-view-id>
@@ -254,7 +679,7 @@
 			<to-view-id>/lector/lector_lesson_edit.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_lesson_edit.xhtml</display-name>
 		<from-view-id>/lector/lector_lesson_edit.xhtml</from-view-id>
@@ -263,7 +688,7 @@
 			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_lesson_edit.xhtml</display-name>
 		<from-view-id>/lector/lector_lesson_edit.xhtml</from-view-id>
@@ -272,7 +697,7 @@
 			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_opened_courses.xhtml</display-name>
 		<from-view-id>/lector/lector_opened_courses.xhtml</from-view-id>
@@ -281,7 +706,7 @@
 			<to-view-id>/lector/lector_course_change_capacity.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_opened_courses.xhtml</display-name>
 		<from-view-id>/lector/lector_opened_courses.xhtml</from-view-id>
@@ -290,7 +715,7 @@
 			<to-view-id>/lector/lector_course_change_place.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_course_change_place.xhtml</display-name>
 		<from-view-id>/lector/lector_course_change_place.xhtml</from-view-id>
@@ -299,7 +724,7 @@
 			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_course_change_place.xhtml</display-name>
 		<from-view-id>/lector/lector_course_change_place.xhtml</from-view-id>
@@ -308,7 +733,7 @@
 			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_course_change_capacity.xhtml</display-name>
 		<from-view-id>/lector/lector_course_change_capacity.xhtml</from-view-id>
@@ -317,7 +742,7 @@
 			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_course_change_capacity.xhtml</display-name>
 		<from-view-id>/lector/lector_course_change_capacity.xhtml</from-view-id>
@@ -326,96 +751,7 @@
 			<to-view-id>/lector/lector_opened_courses.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>admin/admin_lector_edit.xhtml</display-name>
-		<from-view-id>/admin/admin_lector_edit.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>cancel</from-outcome>
-			<to-view-id>/admin/admin_lector_list.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-		
-	<navigation-rule>
-		<display-name>admin/admin_course_list.xhtml</display-name>
-		<from-view-id>/admin/admin_course_list.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>new</from-outcome>
-			<to-view-id>/admin/admin_course_new.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>admin/admin_course_new.xhtml</display-name>
-		<from-view-id>/admin/admin_course_new.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>lector_select</from-outcome>
-			<to-view-id>/admin/admin_course_new_lector_select.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>admin/admin_course_new_lector_select.xhtml</display-name>
-		<from-view-id>/admin/admin_course_new_lector_select.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>insert</from-outcome>
-			<to-view-id>/admin/admin_course_list.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>admin/admin_course_list.xhtml</display-name>
-		<from-view-id>/admin/admin_course_list.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>delete</from-outcome>
-			<to-view-id>/admin/admin_course_list.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>admin/admin_course_list.xhtml</display-name>
-		<from-view-id>/admin/admin_course_list.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>edit</from-outcome>
-			<to-view-id>/admin/admin_course_edit.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>admin/admin_course_edit.xhtml</display-name>
-		<from-view-id>/admin/admin_course_edit.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>update</from-outcome>
-			<to-view-id>/admin/admin_course_list.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>admin/admin_course_edit.xhtml</display-name>
-		<from-view-id>/admin/admin_course_edit.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>cancel</from-outcome>
-			<to-view-id>/admin/admin_course_list.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>admin/admin_course_edit.xhtml</display-name>
-		<from-view-id>/admin/admin_course_edit.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>lector_select</from-outcome>
-			<to-view-id>/admin/admin_course_edit_lector_select.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>admin/admin_course_edit_lector_select.xhtml</display-name>
-		<from-view-id>/admin/admin_course_edit_lector_select.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>edit</from-outcome>
-			<to-view-id>/admin/admin_course_edit.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_profile_edit.xhtml</display-name>
 		<from-view-id>/lector/lector_profile_edit.xhtml</from-view-id>
@@ -424,7 +760,7 @@
 			<to-view-id>/lector/lector_screen.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<display-name>lector/lector_profile_edit.xhtml</display-name>
 		<from-view-id>/lector/lector_profile_edit.xhtml</from-view-id>
@@ -432,72 +768,7 @@
 			<from-outcome>update</from-outcome>
 			<to-view-id>/lector/lector_screen.xhtml</to-view-id>
 		</navigation-case>
-	</navigation-rule>
+	</navigation-rule>	
 	
-	<navigation-rule>
-		<display-name>login.xhtml</display-name>
-		<from-view-id>/login.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>login_lector</from-outcome>
-			<to-view-id>/lector/lector_screen.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>login.xhtml</display-name>
-		<from-view-id>/login.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>login_client</from-outcome>
-			<to-view-id>/client/client_screen.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>login.xhtml</display-name>
-		<from-view-id>/login.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>login_admin</from-outcome>
-			<to-view-id>/admin/admin_screen.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>admin/*</display-name>
-		<from-view-id>/admin/*</from-view-id>
-		<navigation-case>
-			<from-outcome>logout</from-outcome>
-			<to-view-id>/index.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-	</navigation-rule>
 
-	<navigation-rule>
-		<from-view-id>/*</from-view-id>
-		<navigation-case>
-			<from-outcome>logout</from-outcome>
-			<to-view-id>/index.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-	</navigation-rule>
-
-	<navigation-rule>
-		<from-view-id>/*</from-view-id>
-		<navigation-case>
-			<from-outcome>registration</from-outcome>
-			<to-view-id>/registration.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<display-name>registration.xhtml</display-name>
-		<from-view-id>/registration.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>ok</from-outcome>
-			<to-view-id>/registration_complete.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
 </faces-config>

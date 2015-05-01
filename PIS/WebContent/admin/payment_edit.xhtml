@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+ 	xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<h:messages layout="table"></h:messages>
+			<h:panelGrid columns="2">
+				<h:outputLabel rendered="true" value="Částka"></h:outputLabel>
+				<h:inputText value="#{paymentBean.payment.amount}" required="true" 
+					validatorMessage="Neplatná hodnota částky." requiredMessage="Není zadána částka.">
+					 <f:validateLongRange minimum="0" />
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Datum"></h:outputLabel>
+				<a4j:outputPanel id="box1">
+	                <rich:calendar id="cal01" converterMessage="Neplatná hodnota data."
+		               value="#{paymentBean.payment.date}"
+		               popup="true"
+		               datePattern="dd/MM/yyyy" enableManualInput="true"
+		               cellWidth="24px"
+		               cellHeight="22px" style="width:180px">
+					</rich:calendar>  
+                </a4j:outputPanel>	
+                <h:outputLabel rendered="true" value="Číslo účtu"></h:outputLabel>
+				<h:inputText value="#{paymentBean.payment.accountNumber}" required="true"
+					requiredMessage="Není zadáno číslo účtu.">
+				</h:inputText>			
+			</h:panelGrid>
+			<p>
+			<h:commandButton action="#{paymentBean.actionUpdate}" value="Aktualizovat">
+			</h:commandButton>
+			&nbsp;
+			<h:commandButton action="cancel" value="Zrušit">
+			</h:commandButton>
+			</p>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
