@@ -33,5 +33,12 @@ public class LectorManager {
     {
     	return em.find(Lector.class, login);
     }
+
+	public Lector refresh(Lector lector) {
+		Lector l = em.merge(lector);
+		em.refresh(l);
+		
+		return l;
+	}
     
 }

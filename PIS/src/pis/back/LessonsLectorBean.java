@@ -34,6 +34,9 @@ public class LessonsLectorBean {
 	@EJB
 	private OpenCourseManager openCourseMngr;
 	
+	@EJB
+	private LectorManager lectorMngr;
+	
 	private Lector lector;
 	private Lesson lesson;
 	private OpenCourse openCourse;
@@ -114,14 +117,11 @@ public class LessonsLectorBean {
 		    errorMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
 		    FacesContext.getCurrentInstance().addMessage(null, errorMessage);
 			ret = null;
-		} else {
-			
-			if (!justUpdate) {
-				lector.getLessons().add(lesson);
-				lesson.getOpenCourse().getLessons().add(lesson);
-			}
+		} else {	
+            lessonMngr.save(lesson);
 
-			openCourseMngr.save(lesson.getOpenCourse());
+            lector = lectorMngr.refresh(lector);
+            openCourse = openCourseMngr.refresh(lesson.getOpenCourse());
 
 			ret = justUpdate ? "update" : "create";			
 		}

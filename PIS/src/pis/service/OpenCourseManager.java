@@ -43,4 +43,11 @@ public class OpenCourseManager {
     public List<OpenCourse> getOpenCourses() {
     	return findAll();
     }
+
+	public OpenCourse refresh(OpenCourse openCourse) {
+		OpenCourse oc = em.merge(openCourse);
+		em.refresh(oc);
+		
+		return oc;
+	}
 }
