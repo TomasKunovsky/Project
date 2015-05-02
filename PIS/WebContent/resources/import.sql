@@ -6,13 +6,13 @@ INSERT INTO `user` (`LOGIN`, `DTYPE`, `EMAIL`, `FIRSTNAME`, `PASSWORD`, `SURNAME
 ('client1', 'Client', 'mrkvicka@client.com', 'Janko', 'client1', 'Mrkvicka', '724584123', NULL),
 ('client2', 'Client', 'maly@client.com', 'Jozef', 'client2', 'Maly', '757215789', NULL),
 ('client3', 'Client', 'hlina@client.com', 'Alfred', 'client3', 'Hlina', '755145487', NULL),
-('lektor1', 'Lector', 'cerny@kurzy.com', 'Jan', 'lektor1', '?erný', '724399574', 'MS Word'),
+('lektor1', 'Lector', 'cerny@kurzy.com', 'Jan', 'lektor1', 'Èerný', '724399574', 'MS Word'),
 ('lektor2', 'Lector', 'maly@kurzy.com', 'Lukas', 'lektor2', 'Malý', '724390503', 'Power Point'),
 ('lektor3', 'Lector', 'karel@kurzy.cz', 'Karel', 'lektor3', 'Tichý', '784567125', 'Windows 7');
 
 INSERT INTO `course` (`ID`, `DESCRIPTION`, `NAME`, `PRICE`, `LECTOR_LOGIN`) VALUES
 (1, 'balík MS office', 'MS Word', 2000, 'lektor1'),
-(2, 'seznámení s opera?ním systémem', 'Windows 7', 2100, 'lektor3'),
+(2, 'seznámení s operaèním systémem', 'Windows 7', 2100, 'lektor3'),
 (3, 'balík MS office', 'MS PowerPoint', 3000, 'lektor2');
 
 INSERT INTO `open_course` (`ID`, `CAPACITY`, `ENDDATE`, `PLACE`, `STARTDATE`, `COURSE_ID`, `LECTOR_LOGIN`) VALUES
